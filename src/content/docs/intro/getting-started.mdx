@@ -1,0 +1,354 @@
+---
+title: Getting Started
+---
+
+import { Tabs, TabItem, Aside } from '@astrojs/starlight/components';
+
+If you're just starting out with web design and/or development, these are some steps you'll need to take to get everything set up before you can dive all the way in. These steps aren't strictly necessary until the later lessons (where this will be linked back to), but it's a good idea to get them out of the way now.
+
+## Terminal
+
+I recommend getting comfortable with the command line and terminal because you'll need to use it often during the course of developing a website. It's a good idea to get comfortable with it now.
+
+Here's how to set it up:
+
+<Tabs syncKey="software-services-setup">
+    <TabItem label="macOS" icon="apple">
+        No setup necessary, macOS comes with
+        [Terminal](https://support.apple.com/guide/terminal/welcome/mac)
+    </TabItem>
+    <TabItem label="Windows" icon="seti:windows">
+        [Download Windows Terminal from the Windows Store](https://aka.ms/terminal)
+    </TabItem>
+
+</Tabs>
+
+## System Package Manager
+
+One simple way to get started getting familiar with the terminal is to install some [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) apps using a command line. You can do this by installing a package manager for your operating system. A system package manager is sort of like an app store that can install GUI apps as well as command line programs and other system libraries and is primarily accessed from the command line.
+
+<Tabs syncKey="software-services-setup">
+    <TabItem label="macOS" icon="apple">
+        Open [Terminal](https://support.apple.com/guide/terminal/welcome/mac) and run:
+
+        ```sh
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        ```
+    </TabItem>
+    <TabItem label="Windows" icon="seti:windows">
+        Comes with `winget` by default, make sure to [update App
+        Installer in the Windows Store](https://www.microsoft.com/p/app-installer/9nblggh4nns1)
+    </TabItem>
+
+</Tabs>
+
+## Chromium-Based Web Browser
+
+While you can develop websites in any browser, I've found that Chromium-based browsers have the best developer tools and the widest availability of developer extensions. You will, of course, need to test in other browsers (especially mobile Safari) to make sure your website works for everyone (we'll cover that in a later section), but for development, these browsers are great choices:
+
+### Google Chrome
+
+Download using one of the following methods:
+
+<Tabs syncKey="software-services-setup">
+    <TabItem label="macOS" icon="apple">
+
+        - Open [Terminal](https://support.apple.com/guide/terminal/welcome/mac) and run:
+            ```sh
+            brew install --cask google-chrome
+            ```
+        - Download from the [website](https://www.google.com/chrome)
+
+    </TabItem>
+    <TabItem label="Windows" icon="seti:windows">
+
+        - Open [Terminal](https://learn.microsoft.com/en-us/windows/terminal) and run:
+            ```sh
+            winget install Google.Chrome
+            ```
+        - Download from the [website](https://www.google.com/chrome)
+
+    </TabItem>
+    {/* <TabItem label="Chrome OS">
+        Google Chrome comes with Chrome OS as the default browser
+    </TabItem> */}
+
+</Tabs>
+
+### Microsoft Edge
+
+Download using one of the following methods:
+
+<Tabs syncKey="software-services-setup">
+    <TabItem label="macOS" icon="apple">
+
+        -   Open [Terminal](https://support.apple.com/guide/terminal/welcome/mac) and run:
+            ```sh
+            brew install --cask microsoft-edge
+            ```
+        -   Download from the [website](https://www.microsoft.com/en-us/edge)
+
+    </TabItem>
+    <TabItem label="Windows" icon="seti:windows">
+
+        <Aside type="caution">
+            Edge usually comes with Windows, but if you don't have it on your system for some reason or need to update it:
+        </Aside>
+
+        -   Open [Terminal](https://learn.microsoft.com/en-us/windows/terminal) and run:
+            ```sh
+            winget install Microsoft.Edge
+            ```
+        -   Download or update from the [Windows Store](https://apps.microsoft.com/detail/xpfftq037jwmhs)
+
+    </TabItem>
+
+</Tabs>
+
+### Vivaldi
+
+Download using one of the following methods:
+
+<Tabs syncKey="software-services-setup">
+    <TabItem label="macOS" icon="apple">
+
+        -   Open [Terminal](https://support.apple.com/guide/terminal/welcome/mac) and run:
+            ```sh
+            brew install --cask vivaldi
+            ```
+        -   Download from the [website](https://vivaldi.com/download)
+
+    </TabItem>
+    <TabItem label="Windows" icon="seti:windows">
+
+        -   Open [Terminal](https://learn.microsoft.com/en-us/windows/terminal) and run:
+            ```sh
+            winget install VivaldiTechnologies.Vivaldi
+            ```
+        -   Download from the [website](https://vivaldi.com/download)
+
+    </TabItem>
+
+</Tabs>
+
+### Ungoogled Chromium
+
+Download using one of the following methods:
+
+<Tabs syncKey="software-services-setup">
+    <TabItem label="macOS" icon="apple">
+
+        -   Open [Terminal](https://support.apple.com/guide/terminal/welcome/mac) and run:
+            ```sh
+            brew install --cask eloston-chromium
+            ```
+        -   Download from the [website](https://ungoogled-software.github.io/ungoogled-chromium-binaries)
+
+    </TabItem>
+    <TabItem label="Windows" icon="seti:windows">
+
+        -   Open [Terminal](https://learn.microsoft.com/en-us/windows/terminal) and run:
+            ```sh
+            winget install eloston.ungoogled-chromium
+            ```
+        -   Download from the [website](https://ungoogled-software.github.io/ungoogled-chromium-binaries)
+
+    </TabItem>
+
+</Tabs>
+
+## Visual Studio Code
+
+Download using one of the following methods:
+
+<Tabs syncKey="software-services-setup">
+    <TabItem label="macOS" icon="apple">
+
+        -   Open [Terminal](https://support.apple.com/guide/terminal/welcome/mac) and run:
+            ```sh
+            brew install --cask visual-studio-code
+            ```
+        -   Download from the [website](https://code.visualstudio.com/download)
+
+    </TabItem>
+    <TabItem label="Windows" icon="seti:windows">
+
+        -   Open [Terminal](https://learn.microsoft.com/en-us/windows/terminal) and run:
+            ```sh
+            winget install Microsoft.VisualStudioCode
+            ```
+        -   Download from the [website](https://code.visualstudio.com/download)
+
+    </TabItem>
+
+</Tabs>
+
+### Extensions
+
+You will need the following Visual Studio Code extensions. You can install these via the command line using the `code` tool or clicking on the link:
+
+- [Astro](https://marketplace.visualstudio.com/items?itemName=astro-build.astro-vscode)
+- [Claude Code](https://marketplace.visualstudio.com/items?itemName=Anthropic.claude-code)
+- [Deno](https://marketplace.visualstudio.com/items?itemName=denoland.vscode-deno)
+- [GitHub Actions](https://marketplace.visualstudio.com/items?itemName=github.vscode-github-actions)
+- [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
+- [MDX](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx)
+
+```sh
+code --install-extension astro-build.astro-vscode
+code --install-extension Anthropic.claude-code
+code --install-extension denoland.vscode-deno
+code --install-extension github.vscode-github-actions
+code --install-extension GitHub.vscode-pull-request-github
+code --install-extension unifiedjs.vscode-mdx
+```
+
+### Optional Extensions
+
+These extensions are not required in order to create a website, but they might make your code editor look a little nicer:
+
+- [GitHub Theme](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme)
+- [Fluent Icons](https://marketplace.visualstudio.com/items?itemName=miguelsolorio.fluent-icons)
+- [Symbols](https://marketplace.visualstudio.com/items?itemName=miguelsolorio.symbols)
+- [Markdown Preview GitHub Styling](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-preview-github-styles)
+- [TODO Highlight](https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight)
+
+```sh
+code --install-extension GitHub.github-vscode-theme
+code --install-extension miguelsolorio.fluent-icons
+code --install-extension miguelsolorio.symbols
+code --install-extension bierner.markdown-preview-github-styles
+code --install-extension wayou.vscode-todo-highlight
+```
+
+## Git & GitHub
+
+-   **Create an account:** On [github.com](https://github.com/signup)
+
+<Tabs syncKey="software-services-setup">
+    <TabItem label="macOS" icon="apple">
+        -   Open [Terminal](https://support.apple.com/guide/terminal/welcome/mac) and run:
+            ```sh
+            brew install git
+            ```
+        -   Install the GitHub CLI, open [Terminal](https://support.apple.com/guide/terminal/welcome/mac) and run:
+            ```sh
+            brew install gh
+            ```
+
+    </TabItem>
+    <TabItem label="Windows" icon="seti:windows">
+
+        -   Open [Terminal](https://learn.microsoft.com/en-us/windows/terminal) and run:
+            ```sh
+            winget install Git.Git
+            ```
+        -   Install the GitHub CLI, open [Terminal](https://learn.microsoft.com/en-us/windows/terminal) and run:
+            ```sh
+            winget install GitHub.cli
+            ```
+
+    </TabItem>
+
+</Tabs>
+
+### Setting your username in Git
+
+You can change the name that is associated with your Git commits using the `git config` command. The new name you set will be visible in any future commits you push to GitHub from the command line. If you'd like to keep your real name private, you can use any text as your Git username.
+
+Changing the name associated with your Git commits using `git config` will only affect future commits and will not change the name used for past commits.
+
+1. Open Terminal.
+2. Set a Git username:
+   ```sh
+   git config --global user.name "Mona Lisa"
+   ```
+3. Confirm that you have set the Git username correctly:
+   ```sh
+   $ git config --global user.name
+   > Mona Lisa
+   ```
+
+### Setting your commit email address
+
+You can use the `git config` command to change the email address you associate with your Git commits. The new email address you set will be visible in any future commits you push to GitHub from the command line. Any commits you made prior to changing your commit email address are still associated with your previous email address.
+
+1. Open Terminal.
+2. Set your email address using `git`. You should use your [primary email address in GitHub](https://docs.github.com/en/account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account), so that your commits are attributed to you and appear in your contributions graph.
+   ```sh
+   git config --global user.email "mona.lisa@github.com"
+   ```
+3. Confirm that you have set the email address correctly in Git:
+   ```sh
+   $ git config --global user.email
+   > mona.lisa@github.com
+   ```
+
+### Authenticating the GitHub CLI
+
+```sh
+gh auth login
+```
+
+Follow the interactive set up and choose:
+
+1. **Where do you use GitHub?** GitHub.com
+2. **What is your preferred protocol for Git operations on this host?** HTTPS
+3. **Authenticate Git with your GitHub credentials?** Y
+4. **How would you like to authenticate GitHub CLI?** Login with a web browser
+5. Follow the instructions and you should get authenticated
+
+## Deno
+
+Download using one of the following methods:
+
+<Tabs syncKey="software-services-setup">
+    <TabItem label="macOS" icon="apple">
+
+        -   Open [Terminal](https://support.apple.com/guide/terminal/welcome/mac) and run:
+            ```sh
+            curl -fsSL https://deno.land/install.sh | sh
+            ```
+
+    </TabItem>
+    <TabItem label="Windows" icon="seti:windows">
+
+        -   Open [Terminal](https://learn.microsoft.com/en-us/windows/terminal) and run:
+            ```sh
+            winget install DenoLand.Deno
+            ```
+
+    </TabItem>
+
+</Tabs>
+
+When a Deno update is available, you can update using one of the following methods:
+
+<Tabs syncKey="software-services-setup">
+    <TabItem label="macOS" icon="apple">
+
+        -   Open [Terminal](https://support.apple.com/guide/terminal/welcome/mac) and run:
+            ```sh
+            deno upgrade
+            ```
+
+    </TabItem>
+    <TabItem label="Windows" icon="seti:windows">
+
+        -   Open [Terminal](https://learn.microsoft.com/en-us/windows/terminal) and run:
+            ```sh
+            winget upgrade DenoLand.Deno
+            ```
+
+    </TabItem>
+
+</Tabs>
+
+## Claude Code
+
+Claude Code is a command line application written in TypeScript, so you can install it from npm using Deno:
+
+-   Open [Terminal](https://support.apple.com/guide/terminal/welcome/mac) and run:
+    ```sh
+    deno install --global -A npm:@anthropic-ai/claude-code@latest
+    ```

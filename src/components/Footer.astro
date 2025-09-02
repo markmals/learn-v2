@@ -1,0 +1,82 @@
+---
+import '@astrojs/starlight';
+
+import Pagination from '@astrojs/starlight/components/Pagination.astro';
+import { Icon } from '@astrojs/starlight/components';
+import { LinkCard } from '@astrojs/starlight/components';
+
+const props = Astro.locals.starlightRoute;
+
+function getShortUrl(url: string) {
+    const u = new URL(url);
+    return u.hostname.replaceAll('www.', '');
+}
+---
+
+<footer class="sl-flex">
+    <!-- <div class="meta sl-flex">
+        <EditLink {...Astro.props} />
+        <LastUpdated {...Astro.props} />
+    </div> -->
+
+    <!-- Attribution to original article -->
+    {
+        typeof props.entry.data.editUrl === 'string' && (
+            <LinkCard
+                title={`Originally published on ${getShortUrl(props.entry.data.editUrl)}`}
+                description={props.entry.data.editUrl}
+                href={props.entry.data.editUrl}
+            />
+        )
+    }
+
+    <hr />
+
+    <Pagination {...Astro.props} />
+
+    <a class="kudos sl-flex" href="https://starlight.astro.build">
+        <Icon name="starlight" />
+        Built with Starlight
+    </a>
+</footer>
+
+<style>
+    footer {
+        margin-top: 3rem !important;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    .meta {
+        gap: 0.75rem 3rem;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-top: 3rem;
+        font-size: var(--sl-text-sm);
+        color: var(--sl-color-gray-3);
+    }
+    .meta > :global(p:only-child) {
+        margin-inline-start: auto;
+    }
+
+    hr {
+        margin: 2rem 0;
+        border-style: solid;
+        border-color: var(--sl-color-gray-5);
+        border-width: 0.5px;
+    }
+
+    .kudos {
+        align-items: center;
+        gap: 0.5em;
+        margin: 1.5rem auto;
+        font-size: var(--sl-text-xs);
+        text-decoration: none;
+        color: var(--sl-color-gray-3);
+    }
+    .kudos :global(svg) {
+        color: var(--sl-color-orange);
+    }
+    .kudos:hover {
+        color: var(--sl-color-white);
+    }
+</style>

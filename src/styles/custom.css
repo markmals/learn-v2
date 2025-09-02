@@ -1,0 +1,251 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
+/* ====================================== THEME ====================================== */
+
+:root {
+    --sl-font-system-mono:
+        'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+        'Courier New', monospace;
+}
+
+/* Dark mode colors. */
+:root {
+    --sl-color-accent-low: #062c14;
+    --sl-color-accent: #007f3e;
+    --sl-color-accent-high: #acd4b5;
+    --sl-color-white: #ffffff;
+    --sl-color-gray-1: #edeeef;
+    --sl-color-gray-2: #c1c2c4;
+    --sl-color-gray-3: #8a8b8f;
+    --sl-color-gray-4: #57585b;
+    --sl-color-gray-5: #37383b;
+    --sl-color-gray-6: #262729;
+    --sl-color-black: #181819;
+
+    --color-code-bg-1: rgba(237, 255, 240, 0.02);
+    --color-code-bg-2: rgba(238, 237, 255, 0.05);
+}
+/* Light mode colors. */
+:root[data-theme='light'] {
+    --sl-color-accent-low: #c2e0c8;
+    --sl-color-accent: #008140;
+    --sl-color-accent-high: #003e1b;
+    --sl-color-white: #181819;
+    --sl-color-gray-1: #262729;
+    --sl-color-gray-2: #37383b;
+    --sl-color-gray-3: #57585b;
+    --sl-color-gray-4: #8a8b8f;
+    --sl-color-gray-5: #c1c2c4;
+    --sl-color-gray-6: #edeeef;
+    --sl-color-gray-7: #f6f6f7;
+    --sl-color-black: #ffffff;
+
+    --color-code-bg-1: rgba(239, 237, 255, 0.1);
+    --color-code-bg-2: rgba(237, 237, 255, 0.25);
+}
+
+/* =================================== LO-FI THEME =================================== */
+
+/* Dark mode colors. */
+/* :root {
+    --sl-color-accent-low: #002b26;
+    --sl-color-accent: #007b70;
+    --sl-color-accent-high: #9ad6cd;
+    --sl-color-white: #ffffff;
+    --sl-color-gray-1: #ebefee;
+    --sl-color-gray-2: #bfc3c2;
+    --sl-color-gray-3: #858e8c;
+    --sl-color-gray-4: #525a59;
+    --sl-color-gray-5: #333a39;
+    --sl-color-gray-6: #222827;
+    --sl-color-black: #161918;
+
+    --color-code-bg-1: rgba(255, 255, 255, 0.02);
+    --color-code-bg-2: rgba(12, 188, 237, 0.04);
+} */
+
+/* Light mode colors. */
+/* :root[data-theme="light"] {
+    --sl-color-accent-low: #a4e6dc;
+    --sl-color-accent: #007d72;
+    --sl-color-accent-high: #003b35;
+    --sl-color-white: #001e1a;
+    --sl-color-gray-1: #002e29;
+    --sl-color-gray-2: #00423c;
+    --sl-color-gray-3: #00675d;
+    --sl-color-gray-4: #00a193;
+    --sl-color-gray-5: #32decc;
+    --sl-color-gray-6: #b4fff3;
+    --sl-color-gray-7: #dcfff9;
+    --sl-color-black: #ffffff;
+
+    --color-code-bg-1: rgba(237, 251, 255, 0.1);
+    --color-code-bg-2: rgba(237, 252, 255, 0.25);
+} */
+
+/* ==================================== USA THEME ==================================== */
+
+/* Dark mode colors. */
+/* :root {
+	--sl-color-accent-low: #460c00;
+	--sl-color-accent: #bc2f00;
+	--sl-color-accent-high: #fdb4a1;
+	--sl-color-white: #ffffff;
+	--sl-color-gray-1: #eceef2;
+	--sl-color-gray-2: #c0c2c7;
+	--sl-color-gray-3: #888b96;
+	--sl-color-gray-4: #545861;
+	--sl-color-gray-5: #353841;
+	--sl-color-gray-6: #24272f;
+	--sl-color-black: #17181c;
+} */
+
+/* Light mode colors. */
+/* :root[data-theme='light'] {
+	--sl-color-accent-low: #ffc8ba;
+	--sl-color-accent: #bf3000;
+	--sl-color-accent-high: #5e1200;
+	--sl-color-white: #17181c;
+	--sl-color-gray-1: #24272f;
+	--sl-color-gray-2: #353841;
+	--sl-color-gray-3: #545861;
+	--sl-color-gray-4: #888b96;
+	--sl-color-gray-5: #c0c2c7;
+	--sl-color-gray-6: #eceef2;
+	--sl-color-gray-7: #f5f6f8;
+	--sl-color-black: #ffffff;
+} */
+
+/* ==================================== OVERRIDES ==================================== */
+
+/* @media (prefers-color-scheme: dark) {
+    .action.primary {
+        background-color: #1f772b;
+        color: #e1ece4;
+    }
+
+    [aria-current='page'],
+    [aria-current='page']:hover,
+    [aria-current='page']:focus {
+        color: #e1ece4;
+        background-color: #1f772b;
+    }
+} */
+
+aside[aria-label='Coming Soon'] .starlight-aside__content {
+    display: none;
+}
+
+/* @media (prefers-color-scheme: light) {
+    h1#_top {
+        color: #1a2430;
+    }
+}
+
+h1#_top {
+    font-family: "YouTube Sans";
+    font-weight: 700;
+}
+
+.light {
+    font-weight: 300;
+}
+
+.tagline {
+    font-family: "YouTube Sans";
+    font-weight: 500;
+}
+
+.action.primary {
+    font-family: "YouTube Sans";
+    font-weight: 500;
+    font-size: 1.125rem;
+}
+
+h2#how-it-works {
+    font-family: "YouTube Sans";
+    font-weight: 700;
+} */
+
+figcaption {
+    opacity: 65%;
+    font-size: var(--sl-text-sm);
+    margin-top: 0.25rem !important;
+    text-align: center;
+}
+
+.sidebar-content a[href='/#'] {
+    opacity: 40%;
+    pointer-events: none;
+}
+
+.sl-markdown-content code:not(:where(.not-content *)) {
+    border-radius: 0.2rem;
+}
+
+.expressive-code .frame pre {
+    background: linear-gradient(var(--color-code-bg-1), var(--color-code-bg-2)) !important;
+}
+
+.expressive-code pre {
+    border: 1px solid var(--sl-color-gray-6) !important;
+    border-radius: 0.5rem !important;
+}
+
+.expressive-code .frame.is-terminal pre {
+    /* border-top: none !important; */
+    border-radius: 0 0 0.5rem 0.5rem !important;
+}
+
+.expressive-code .frame.is-terminal .header {
+    background: var(--color-code-bg-2) !important;
+    border-color: var(--sl-color-gray-6) !important;
+}
+
+.expressive-code .frame.is-terminal .header::before {
+    width: 2.52rem !important;
+    height: 0.672rem !important;
+}
+
+.expressive-code .frame.has-title pre {
+    border-top-width: 0px !important;
+    border-radius: 0 0 0.5rem 0.5rem !important;
+}
+
+.expressive-code .frame {
+    border-radius: 0.5rem !important;
+}
+
+.expressive-code .frame .header {
+    border-radius: 0.5rem 0.5rem 0 0 !important;
+}
+
+.expressive-code .frame.has-title:not(.is-terminal) .title {
+    border-radius: 0.5rem 0 0 0 !important;
+    border-right: 1px solid var(--ec-frm-edTabBarBrdCol) !important;
+}
+
+.expressive-code .frame.has-title:not(.is-terminal) .title::after {
+    border-top: none !important;
+    border-bottom: var(--ec-frm-edActTabIndHt) solid var(--ec-frm-edActTabIndTopCol) !important;
+}
+
+details details summary span.large {
+    font-size: var(--sl-text-sm);
+}
+
+@media (prefers-color-scheme: dark) {
+    .expressive-code .frame.has-title:not(.is-terminal) .header {
+        background: var(--sl-color-black) !important;
+    }
+
+    .expressive-code .frame.has-title:not(.is-terminal) .title {
+        background: rgba(36, 35, 43, 0.3) !important;
+        background-clip: padding-box !important;
+        border-right: 1px solid var(--sl-color-gray-6) !important;
+    }
+
+    .expressive-code .frame.has-title:not(.is-terminal) .header::before {
+        border: var(--ec-brdWd) solid var(--sl-color-gray-6) !important;
+    }
+}

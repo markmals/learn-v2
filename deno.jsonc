@@ -1,0 +1,56 @@
+{
+    "$schema": "https://deno.land/x/deno/cli/schemas/config-file.v1.json",
+    "nodeModulesDir": "auto",
+    "lock": false,
+    "unstable": ["fmt-component", "bare-node-builtins"],
+    "tasks": {
+        "dev": {
+            "command": "deno run -A npm:astro dev",
+            "dependencies": ["generate-shiki"]
+        },
+        "fmt": "deno fmt",
+        "lint": "deno lint",
+        "build": {
+            "command": "deno run -A npm:astro build",
+            "dependencies": ["generate-shiki"]
+        },
+        "preview": "deno run -A npm:astro preview",
+        "clean": "find . -type d -name 'node_modules' -exec rm -rf {} + && find . -type f -name 'deno.lock' -delete; deno clean; deno install --allow-scripts",
+        "generate-shiki": "deno run -A scripts/generate-shiki-bundle.ts"
+    },
+    "fmt": {
+        "lineWidth": 100,
+        "indentWidth": 4,
+        "singleQuote": true,
+        "semiColons": true,
+        "proseWrap": "preserve"
+    },
+    "imports": {
+        "@astrojs/starlight": "npm:@astrojs/starlight@^0.35.2",
+        "@codesandbox/sandpack-client": "npm:@codesandbox/sandpack-client@^2.19.8",
+        "@shikijs/core": "npm:@shikijs/core@^3.12.1",
+        "@shikijs/engine-javascript": "npm:@shikijs/engine-javascript@^3.12.1",
+        "@shikijs/langs": "npm:@shikijs/langs@^3.12.1",
+        "@shikijs/themes": "npm:@shikijs/themes@^3.12.1",
+        "@shikijs/types": "npm:@shikijs/types@^3.12.1",
+        "astro": "npm:astro@^5.6.1",
+        "sharp": "npm:sharp@^0.34.2",
+        "shiki": "npm:shiki@^3.12.1",
+        "shiki-codegen": "npm:shiki-codegen@latest"
+    },
+    "compilerOptions": {
+        // Skip typechecking libraries and .d.ts files
+        "skipLibCheck": true,
+        // Allow JSX files (or files that are internally considered JSX, like Astro files) to be imported inside `.js` and `.ts` files.
+        "jsx": "preserve",
+        // Include generated Astro type definitions
+        "types": [".astro/types.d.ts", "@astrojs/starlight"],
+        "lib": ["deno.ns", "dom", "dom.iterable", "esnext"],
+        // Less strict settings for better compatibility
+        "strict": false,
+        "noImplicitAny": false,
+        "strictNullChecks": false,
+        "allowUnreachableCode": true,
+        "allowUnusedLabels": true
+    }
+}

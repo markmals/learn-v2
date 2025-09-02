@@ -1,0 +1,66 @@
+---
+title: Learn! Web Development
+template: splash
+hero:
+  tagline: Learn web development using modern technologies with the help of Claude Code
+  image:
+    file: ../../assets/graduation-cap.svg
+  actions:
+    - text: Get Started
+      link: /intro/getting-started
+      icon: right-arrow
+      variant: primary
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Your Journey Starts Here
+
+<CardGrid stagger>
+	<Card title="HTML & CSS Foundations" icon="document">
+		Start with the fundamentals of [HTML](/html/overview) and [CSS](/css/box-model). These form the base of everything.
+	</Card>
+	<Card title="Astro Full-Stack Framework" icon="rocket">
+		Jump into [Astro basics](/astro/why-astro) and create your first enhanced HTML page. You'll be surprised how much you can do without JavaScript.
+	</Card>
+	<Card title="Web-Native Interactivity" icon="puzzle">
+		Learn [Web Components](/web-components/intro) to create reusable elements like animated stickers, search bars, and interactive galleries.
+	</Card>
+	<Card title="Go Live" icon="star">
+		Deploy your website with [Deno Deploy](/deno-deploy/intro) and add [authentication](/clerk/setup) for user accounts.
+	</Card>
+</CardGrid>
+
+## Quick Wins
+
+<CardGrid>
+	<Card title="Figma → Code Workflow" icon="seti:html">
+		Export designs and use [Claude Code](/claude-code/figma) to transform them into Astro components with a single prompt.
+	</Card>
+	<Card title="Your First Web Component" icon="setting">
+		Build a [search component](/web-components/search-bar) in under 50 lines of code that works everywhere, forever.
+	</Card>
+	<Card title="CMS in 30 Minutes" icon="pencil">
+		Connect [Storyblok](/storyblok/setup) and start authoring content with a visual editor immediately.
+	</Card>
+	<Card title="Project Walkthrough" icon="open-book">
+		Follow our [step-by-step guide](/walkthrough/issue-1/setup) to build your website from scratch.
+	</Card>
+</CardGrid>
+
+## Why This Stack?
+
+<CardGrid>
+	<Card title="Beginner-Friendly" icon="approve-check">
+		HTML-first approach means Figma designs translate directly to code. No complex abstractions or "React-isms" to learn.
+	</Card>
+	<Card title="Zero Config" icon="setting">
+		Deno eliminates tooling headaches. One command to install, one command to run, one command to deploy.
+	</Card>
+	<Card title="Future-Proof" icon="information">
+		Web Components are web standards. Your interactive elements will work in 10 years without any maintenance.
+	</Card>
+	<Card title="Production-Ready" icon="rocket">
+		Clerk handles auth, Storyblok manages content, Deno Deploy scales automatically. Focus on creativity, not infrastructure.
+	</Card>
+</CardGrid>

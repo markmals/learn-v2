@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+        "astro-build.astro-vscode",
+        "Anthropic.claude-code",
+        "denoland.vscode-deno",
+        "github.vscode-github-actions",
+        "GitHub.vscode-pull-request-github",
+        "unifiedjs.vscode-mdx",
+        "wayou.vscode-todo-highlight"
+    ]
+}
