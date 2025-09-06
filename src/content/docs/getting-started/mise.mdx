@@ -1,0 +1,131 @@
+---
+title: Mise
+---
+
+import { Card, Tabs, TabItem, Aside } from '@astrojs/starlight/components';
+
+Mise is a toolchain manager, meaning it is a command line tool that helps you download and manage other command line tools. Similar to Homebrew, but it is scoped more specifically to development tools so it can do more specific things with them.
+
+## Install Mise
+
+<Card title="Quick Install on macOS" icon="down-arrow">
+Use Homebrew:
+
+```sh
+brew install mise
+```
+</Card>
+<Card title="Activate" icon="right-arrow">
+Then, make sure to activate for your shell:
+
+<Aside title="Did You Know?">
+    By default, modern macOS uses [`zsh`](https://en.wikipedia.org/wiki/Z_shell) as its shell
+</Aside>
+
+<Tabs>
+    <TabItem label="zsh">
+        ```sh
+        echo 'eval "$(mise activate zsh)"' >> ~/.zshrc
+        ```
+    </TabItem>
+    <TabItem label="bash">
+        ```sh
+        echo 'eval "$(mise activate bash)"' >> ~/.bashrc
+        ```
+    </TabItem>
+</Tabs>
+</Card>
+<Card title="Verify" icon="approve-check">
+Check your setup:
+
+```sh
+mise --version
+```
+</Card>
+
+## Why Are We Using Mise?
+
+- Mise reads a configuration file in each project (`mise.toml`), which declares the exact versions of web development tools we're using and allows us to install the same versions of these as our collaborators with a single command (`mise install`)
+- Mise lets us install global versions of these tools for projects we work on locally so we have a frictionless setup
+- Mise lets us coordinate multiple command line commands into concurrent `tasks` for a project, which can be run with `mise run <task>`
+
+Low barrier to entry, low-friction developer experience, and reliable results on any machine.
+
+## How We Use Mise
+
+Keep project requirements and tasks in `mise.toml` at the root of your project folder. Whenever someone pulls the project from git, they can just run `mise install` once, then `mise run <task>` without worrying about global installs.
+
+### Example project
+
+Here is an example of what a `mise.toml` file might look like, so you can familiarize yourself with a typical configuration:
+
+```toml
+# example/mise.toml
+[tools]
+bun = "latest"
+biome = "latest"
+"npm:@typescript/native-preview" = "latest"  # TypeScript compiler
+"npm:rolldown-vite" = "latest"               # JavaScript Bundler
+"npm:wrangler" = "latest"                    # Cloudflare Workers CLI
+
+[settings.npm]
+bun = true  # run npm tools via Bun for speed
+
+[tasks.dev]
+description = "Run the development server"
+run = "vite dev --host"
+
+[tasks.build]
+description = "Build the app"
+# Specify the source files for caching purposes
+sources = [
+  "bun.lock",
+  "react-router.config.ts",
+  "vite.config.ts",
+  "tsconfig.ts",
+  "worker-configuration.d.ts",
+  "app/**/*.{ts,tsx,css,json,md}",
+]
+# Specify the output files for caching purposes
+outputs = ["build"]
+run = "vite build"
+
+[tasks.deploy]
+description = "Deploy to Cloudflare Workers"
+depends = "build"
+confirm = "Are you sure you want to deploy this app to Cloudflare Workers?"
+run = "wrangler deploy"
+
+[tasks.typecheck]
+description = "Typecheck the entire project"
+run = "tsgo --noEmit"
+```
+
+- Tools: Bun and several JavaScript CLIs are pinned here, so newcomers don't need to install them manually.
+- Tasks: Common workflows (dev, build, deploy, typecheck) become one-liners: `mise run dev`.
+- Caching: `sources`/`outputs` let Mise skip work if nothing changed.
+
+### First time in a repo with Mise
+
+```sh
+# 1) Trust the config (once per repo)
+mise trust
+
+# 2) Install declared tools
+mise install
+
+# 3) See what you can run
+mise tasks
+
+# 4) Start building
+mise run dev
+```
+
+If a task or tool isn’t found, ensure your shell is activated (see [Install](#install-mise) section) and re-run `mise doctor`.
+
+## Further reading
+
+- Official docs: https://mise.jdx.dev
+- Dev tools registry: https://mise.jdx.dev/registry
+- Tasks: https://mise.jdx.dev/tasks
+- Getting started: https://mise.jdx.dev/getting-started

@@ -1,0 +1,129 @@
+---
+title: TypeScript
+---
+
+Up until now, we've been talking about building this app as if we'll be using JavaScript. And I have a confession to make... That was a lie. Well, at least a partial lie.
+
+Because, we're really going to be using: TypeScript!
+
+This is a very good thing. Trust me.
+
+TypeScript is a *superset* of JavaScript, meaning any valid JavaScript syntax is valid TypeScript syntax, but TypeScript adds some additional syntax on top of JavaScript — specifically *types*.
+
+## Why Are We Using TypeScript?
+
+In a typical JavaScript program, you might write something like this:
+
+```js title="format-currency.js"
+function formatCurrency(value) {
+    const formattedValue = "$" + value;
+    return formattedValue;
+}
+
+console.log(formatCurrency(2.0)); // -> "$2"
+```
+
+Now, this is great, but... there's a lot of information missing here. We passed a `number` into the `formatCurrency` function for `value`, but is that what was intended to be passed in? If you look at the implementation, you can see that we're adding a static `string` (`"$"`) to `value`. So are we actually supposed to be passing in a `string`? Does the `formatCurrency` function return a value or is it intended to modify the value that was passed in without returning a new value? If you're consuming this function from a library in JavaScript, this is all the information you have about it:
+
+```js title="format-currency.js"
+function formatCurrency(value);
+console.log(formatCurrency(2.0)); // -> "$2"
+```
+
+It sure would be nice to have a little more information when using code written by someone else, huh? Perfect. Same page.
+
+Enter: TypeScript.
+
+```ts title="format-currency.ts"
+function formatCurrency(value: string): string {
+    const formattedValue = "$" + value;
+    return formattedValue;
+}
+
+console.log(formatCurrency(2.0));
+//                        ^~~~~
+//                        Error: Incorrect type
+//                        Expected `string`, got `number`
+```
+
+TypeScript encourages us to explicitly enumerate what types we expect functions to accept and what types we expect functions to return so that we have more information when using those functions without needing to comb over the complicated implementations of some functions.
+
+TypeScript also allows us to catch errors in our own code and logic with warnings it can inform us of now that it knows more about what we're trying to do:
+
+```ts title="format-currency.ts"
+function formatCurrency(value: number): string {
+    const formattedValue = "$" + value;
+    //                           ^~~~~
+    //                           Warning: Type coercion
+    //                           `number` will automatically be coerced to `string`
+    //                           Make this transformation explicit if it is intended
+    //                           `const formattedValue = "$" + String(value)`
+    return formattedValue;
+}
+
+console.log(formatCurrency(2.0));
+```
+
+## Type Annotations
+
+TypeScript lets us describe objects using interfaces:
+
+```ts
+interface Doughnut {
+	id: string;
+	name: string;
+	price: number;
+	image: string;
+	category: string;
+	stock: number;
+}
+```
+
+or using type aliases:
+
+```ts
+type Doughnut = {
+	id: string;
+	name: string;
+	price: number;
+	image: string;
+	category: string;
+	stock: number;
+};
+```
+
+Type aliases can also be used to simplify other types as a shorthand:
+
+```ts
+type DoughnutCollection = Array<Doughnut>;
+```
+
+Variables and constants can be explicitly typed:
+
+```ts
+let soldOut: boolean = false;
+const SHOW_SPECIAL_DOUGHNUTS: boolean = true;
+```
+
+But most of the time the types of variables and constants can be inferred without the need for explicit types:
+
+```ts
+let soldOut = false; // inferred `boolean`
+const SHOW_SPECIAL_DOUGHNUTS = true; // inferred `boolean`
+```
+
+## Running TypeScript
+
+Web browsers don't support running TypeScript directly ([yet](https://github.com/tc39/proposal-type-annotations)), but our toolchain can compile TypeScript into JavaScript which can be run in web browsers. Additionally, [Bun supports running TypeScript natively](https://bun.com/docs/typescript), during development, for scripts, or on the server.
+
+You can run any TypeScript file by passing it as an argument to Bun:
+
+```ts title="my-script.ts"
+const greeting: string = "Hello, World!"
+console.log(greeting)
+```
+
+```sh
+$ bun my-script.ts
+> "Hello, World!"
+```

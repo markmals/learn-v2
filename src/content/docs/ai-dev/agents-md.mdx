@@ -1,0 +1,68 @@
+---
+title: AGENTS.md
+---
+
+import { Code } from '@astrojs/starlight/components';
+import reactRouterMarkdown from './AGENTS.md?raw';
+
+`AGENTS.md` is a simple, open format for guiding coding agents. Think of `AGENTS.md` as a `README.md` for agents: a dedicated, predictable place to provide the context and instructions to help AI coding agents work on your project.
+
+```md title="AGENTS.md"
+# Contributor Guide
+
+## Setup commands
+- Install dependencies: `bun install`
+- Start dev server: `mise run dev`
+- Run tests: `mise run test`
+
+## Code style
+- TypeScript strict mode
+- Double quotes, use semicolons
+- Use functional patterns where possible
+```
+
+## Why `AGENTS.md`?
+
+`README.md` files are for humans: quick starts, project descriptions, and contribution guidelines.
+
+`AGENTS.md` complements this by containing the extra, sometimes detailed context coding agents need: build steps, tests, and conventions that might clutter a `README.md` or aren’t relevant to human contributors.
+
+It is intentionally kept separate to:
+
+- Give agents a clear, predictable place for instructions.
+- Keep READMEs concise and focused on human contributors.
+- Provide precise, agent-focused guidance that complements existing README and docs.
+
+Rather than introducing another proprietary file, it uses a name and format that could work for anyone.
+
+## How to Use AGENTS.md
+
+1. **Add AGENTS.md**
+
+    Create an AGENTS.md file at the root of the repository. Most coding agents can even scaffold one for you if you ask nicely.
+
+2. **Cover what matters**
+
+    Add sections that help an agent work effectively with your project. Popular choices:
+
+    - Project overview
+    - Build and test commands
+    - Code style guidelines
+    - Testing instructions
+    - Security considerations
+
+3. **Add extra instructions**
+
+    Commit messages or pull request guidelines, security gotchas, large datasets, deployment steps: anything you’d tell a new teammate belongs here too.
+
+4. **Large monorepo? Use nested AGENTS.md files for subprojects**
+
+    Place another AGENTS.md inside each package. Agents automatically read the nearest file in the directory tree, so the closest one takes precedence and every subproject can ship tailored instructions.
+
+
+
+## For React Router Projects
+
+This `AGENTS.md` file was [created by Brooks Lybrand](https://github.com/brookslybrand/react-router-cursor-rules), the Developer Relations Manager for React Router, to help agents work with React Router projects and it works excellently. I highly recommend using it in all of your React Router projects.
+
+<Code code={reactRouterMarkdown} lang="md" title="AGENTS.md" />

@@ -1,0 +1,151 @@
+---
+title: GitHub
+---
+
+import { Tabs, TabItem, Aside } from '@astrojs/starlight/components';
+
+## Getting Started
+
+-   **Create an account:** On [github.com](https://github.com/signup)
+-   Install the GitHub CLI, open Terminal and run:
+    ```sh
+    brew install gh
+    ```
+
+## GitHub In Plain Terms
+
+- Repository: your project’s files plus history, hosted on github.com.
+- Organization: a shared account for teams and projects.
+- Branch: a workspace for changes separate from `main`.
+- Pull Request (PR): propose, discuss, and merge changes from a branch.
+- Issue: track tasks/bugs/ideas with labels, assignees, and projects.
+- Actions: run automated checks (tests, lint, deploy) on pushes/PRs.
+
+## Web-First Workflow (No CLI)
+
+1. Create a repository: on github.com, click your avatar → Your repositories → New.
+   - Name, description, Public/Private, Initialize with README and a .gitignore (Node, Deno, or “None”).
+   - Click Create repository.
+2. Add files:
+   - Use Add file → Upload files to drag-drop images, code, or docs.
+   - Or Add file → Create new file to start from the browser.
+3. Create a branch from the web:
+   - Click the branch dropdown (top-left), type a new branch name (e.g., `feature/hero`), Create branch.
+4. Propose changes and open a PR:
+   - When editing in the browser, choose Create a new branch for this commit, then Propose changes.
+   - Click Create pull request, add a clear title/description, and request reviewers.
+5. Review and merge:
+   - Use Files changed to comment on specific lines, or add suggestions.
+   - Choose a merge method (Merge, Squash, or Rebase). Squash keeps history clean for single-feature PRs.
+   - Delete the branch after merge (recommended).
+
+## Create a Repository on GitHub (Website)
+
+- Click New repository → choose Owner, name, visibility, and initialize with README.
+- Add description and topics to improve discoverability.
+- In Settings → General, enable Issues and Discussions if you plan to use them.
+- In Settings → Branches, confirm `main` as default.
+
+To connect an existing local repo, copy the HTTPS URL from the green Code button and run locally:
+
+```sh
+git remote add origin https://github.com/OWNER/REPO.git
+git push -u origin main
+```
+
+## Issues, Labels, Milestones, Projects
+
+- Issues: create from the Issues tab. Use templates for consistency (Settings → General → Features → Set up templates).
+- Labels: color-code by area and priority (e.g., `area:ui`, `priority:high`).
+- Milestones: group issues toward a release or deadline.
+- Projects: kanban-style planning across repos (Projects tab). Use fields like Status, Priority, and view as Board/Table.
+
+## Pull Requests & Reviews (Website)
+
+- Open PRs from Compare & pull request or from your branch page.
+- Request specific reviewers and set Required reviewers with branch protection rules.
+- Review types: Comment, Approve, or Request changes. Use Suggestions for quick, inline edits.
+- Resolve conversations after addressing feedback. CI checks appear under the Checks tab.
+
+## Collaborators, Teams, and Permissions
+
+- Invite collaborators: Repository → Settings → Collaborators and teams.
+- Roles: Read, Triage, Write, Maintain, Admin. Use Teams (in organizations) for scalable access control.
+- Transfer ownership or Archive under Settings → General → Danger Zone.
+
+## Optional: GitHub CLI
+
+### Authenticating the GitHub CLI
+
+```sh
+gh auth login
+```
+
+Follow the interactive set up and choose:
+
+1. **Where do you use GitHub?** GitHub.com
+2. **What is your preferred protocol for Git operations on this host?** HTTPS
+3. **Authenticate Git with your GitHub credentials?** Y
+4. **How would you like to authenticate GitHub CLI?** Login with a web browser
+5. Follow the instructions and you should get authenticated
+
+### Create a New GitHub Repository
+
+From an existing local folder (recommended):
+
+```sh
+# inside your project directory that already has `git init` and at least one commit
+gh repo create --source=. --public --push
+# or: gh repo create --source=. --private --push
+```
+
+This command creates the repo on GitHub and pushes your local `main` branch.
+
+Alternatively, create the repo on the website, then connect it:
+
+```sh
+git remote add origin https://github.com/OWNER/REPO.git
+git push -u origin main
+```
+
+### Clone an Existing Repository
+
+```sh
+gh repo clone OWNER/REPO
+cd REPO
+```
+
+### Branches and Pull Requests
+
+Create a branch and push it:
+
+```sh
+git switch -c feature/hero
+git add -A && git commit -m "feat: new hero section"
+git push -u origin feature/hero
+```
+
+Open a Pull Request from the branch:
+
+```sh
+gh pr create --fill --base main --head feature/hero
+```
+
+Review PRs:
+
+```sh
+gh pr status
+gh pr view --web
+```
+
+Merge a PR (example uses squash and deletes the branch):
+
+```sh
+gh pr merge --squash --delete-branch
+```
+
+Check out a PR locally (to test changes):
+
+```sh
+gh pr checkout <number>
+```

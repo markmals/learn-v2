@@ -234,7 +234,15 @@ details details summary span.large {
     font-size: var(--sl-text-sm);
 }
 
+figure.frame.is-terminal.not-content {
+    background-color: white;
+}
+
 @media (prefers-color-scheme: dark) {
+    figure.frame.is-terminal.not-content {
+        background-color: var(--ec-frm-trmBg);
+    }
+
     .expressive-code .frame.has-title:not(.is-terminal) .header {
         background: var(--sl-color-black) !important;
     }

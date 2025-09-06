@@ -1,0 +1,124 @@
+---
+title: Visual Studio Code
+---
+
+import { Tabs, TabItem, Aside } from '@astrojs/starlight/components';
+
+Visual Studio Code is the standard editor/IDE for modern web development. It’s built on [Electron](https://www.electronjs.org), so it runs the same on macOS, Windows, and Linux.
+
+VS Code is [open source](https://github.com/microsoft/vscode) and highly extensible, with a [marketplace of thousands of extensions](https://marketplace.visualstudio.com).
+
+## Download & Install
+
+To download VS Code, open Terminal and run this command to install using Homebrew:
+
+```sh
+brew install --cask visual-studio-code
+```
+
+VS Code comes with a command line program (`code`), which allows you to script actions and open VS Code from the command line. To enable the `code` command:
+
+1. Open VS Code
+2. Open the Command Palette using `⌘ + shift + P`
+3. Select `Shell Command: Install 'code' command in PATH`
+4. Quit and restart VS Code and Terminal
+
+## Extensions
+
+Install these to match this project’s workflow:
+
+- [MDX](https://marketplace.visualstudio.com/items?itemName=unifiedjs.vscode-mdx)
+- [Tailwind CSS](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+- [Bun](https://marketplace.visualstudio.com/items?itemName=oven.bun-vscode)
+- [Mise](https://marketplace.visualstudio.com/items?itemName=hverlin.mise-vscode)
+- [Vitest](https://marketplace.visualstudio.com/items?itemName=vitest.explorer)
+- [Codex](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt)
+- [GitHub Actions](https://marketplace.visualstudio.com/items?itemName=github.vscode-github-actions)
+- [GitHub Pull Requests](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github)
+- [Biome](https://marketplace.visualstudio.com/items?itemName=biomejs.biome) (installed, but disabled in this repo)
+- [Motion](https://marketplace.visualstudio.com/items?itemName=Motion.motion-vscode-extension) (optional; animations)
+
+```sh
+code --install-extension unifiedjs.vscode-mdx
+code --install-extension bradlc.vscode-tailwindcss
+code --install-extension oven.bun-vscode
+code --install-extension hverlin.mise-vscode
+code --install-extension vitest.explorer
+code --install-extension openai.chatgpt
+code --install-extension github.vscode-github-actions
+code --install-extension GitHub.vscode-pull-request-github
+code --install-extension biomejs.biome
+code --install-extension Motion.motion-vscode-extension
+```
+
+## Optional Extensions
+
+These extensions are not required in order to create a website, but they might make your code editor look a little nicer:
+
+- [GitHub Theme](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme)
+- [Fluent Icons](https://marketplace.visualstudio.com/items?itemName=miguelsolorio.fluent-icons)
+- [Symbols](https://marketplace.visualstudio.com/items?itemName=miguelsolorio.symbols)
+- [Markdown Preview GitHub Styling](https://marketplace.visualstudio.com/items?itemName=bierner.markdown-preview-github-styles)
+- [TODO Highlight](https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight)
+
+```sh
+code --install-extension GitHub.github-vscode-theme
+code --install-extension miguelsolorio.fluent-icons
+code --install-extension miguelsolorio.symbols
+code --install-extension bierner.markdown-preview-github-styles
+code --install-extension wayou.vscode-todo-highlight
+```
+
+## Familiarizing Yourself with the Editor
+
+Here’s a quick tour of the core UI.
+
+### Explorer
+
+- Shows files/folders. Right‑click to create files. Drag to move.
+- Use `⌘ + P` to "Go to File" quickly.
+- Built‑in file nesting groups related files (configured in this repo).
+
+### Search
+
+- Global text search across the workspace.
+- Use regex and case/word match toggles.
+
+### Source Control
+
+- Integrated Git view. Stage, commit, and push without leaving the editor.
+- Sign in to GitHub to use "Pull Requests" extension for reviews.
+
+### Testing
+
+- The Vitest extension shows tests, watch mode, and inline results for framework code.
+
+### Extensions
+
+- Manage installed extensions and settings.
+
+## Integrated Terminal
+
+VS Code comes with a built-in terminal so you can run commands in the command line without leaving the context of your current project. 
+
+You can open the integrated terminal by clicking on the "Toggle Panel" button in the upper right-hand corner of the VS Code editor (or by pressing `⌘ + J`) and selecting the "Terminal" tab.
+
+{/* ## Recommended Settings for This Repo
+
+This workspace already configures sensible defaults in `.vscode/settings.json`:
+
+- Deno extension enabled and set as default formatter for TS/JS/JSON.
+- Format on save enabled; Prettier/ESLint/Biome disabled here.
+- File nesting patterns for a cleaner Explorer.
+
+If settings look off, open the Command Palette → “Preferences: Open Workspace Settings (JSON)” and verify.
+
+## Integrated Terminal Tips
+
+- Use the built‑in terminal (Ctrl/Cmd+`) to run commands without leaving the editor.
+- Choose your shell in VS Code: Command Palette → “Terminal: Select Default Profile”. Pick zsh on macOS.
+- Common flows: `bun run dev`, `mise run dev`, `deno task dev` depending on the project.
+
+<Aside type="tip" title="Troubleshooting">
+If `code` isn’t found in your terminal, re‑run “Shell Command: Install ‘code’ command in PATH”. If Deno features don’t work, ensure the Deno extension is enabled and that `deno.json`/`deno.jsonc` exists.
+</Aside> */}

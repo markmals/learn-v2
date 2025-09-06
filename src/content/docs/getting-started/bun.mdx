@@ -1,0 +1,72 @@
+---
+title: Bun
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+Now it's time to start running some JavaScript. In the web browser this is easy! You just open the browser inspector (`⌘ + ⌥ + I`), select the "Console" tab, write some JavaScript, and hit `return`. There ya go! The result of your code.
+
+But, we're going to use JavaScript for so much more than running code in the browser. In fact, we're going to use it for *everything*. Or, at least, everything possible and feasible. And in order to do that, we need a way to run JavaScript in environments outside of the browser. Like your computer. And a remote server. And maybe a dozen remote servers, depending on how many people are looking at your site. That's where Bun comes in.
+
+## What is Bun?
+
+Bun is a *standalone JavaScript runtime*. Bun is built on top of the same JavaScript engine used inside of Safari, [JavaScriptCore](https://developer.apple.com/documentation/javascriptcore), but it adds many utilities and abilities on top of JSC which make it possible to use JavaScript in a number of new ways outside of Safari.
+
+Bun includes an "all-in-one toolkit" for building and running JavaScript applications, including a:
+
+- [Drop-in replacement](https://bun.com/docs) for the [Node.js JavaScript server runtime](https://nodejs.org/en)
+- [Node.js-compatible package manager](https://bun.com/docs/cli/install)
+- [Script runner](https://bun.com/docs/cli/run#run-a-package-json-script)
+- [Package runner](https://bun.com/docs/cli/bunx)
+- [Scripting shell](https://bun.com/docs/runtime/shell)
+- [Database client](https://bun.com/docs/api/sqlite)
+- [Another database client](https://bun.com/docs/api/sql)
+- [A third database client](https://bun.com/docs/api/redis)
+- [File storage client](https://bun.com/docs/api/s3)
+- [C language compiler](https://bun.com/docs/api/cc)
+- And more...
+
+## Why Are We Using Bun?
+
+Primarily, Bun will serve these purposes for us:
+
+- Run the development server (which is written in JavaScript) so we can test changes to our app locally
+- Build our application for production
+- Install third-party packages from [npm](https://www.npmjs.com) for us to use in our app
+
+## Install Bun
+
+We'll use Mise to install Bun globally:
+
+```sh
+mise use -g bun@latest  # install latest bun
+```
+
+Verify that Bun was installed correctly:
+
+```sh
+bun --version
+```
+
+## Bun Basics
+
+You can run any JavaScript file by passing it as an argument to Bun:
+
+```js title="my-script.js"
+console.log("Hello, World!")
+```
+
+```sh
+$ bun my-script.js
+> "Hello, World!"
+```
+
+## Further reading
+
+- Bun install: https://bun.sh/docs/cli/install
+- Add/remove/update
+  - https://bun.sh/docs/cli/add
+  - https://bun.sh/docs/cli/remove
+  - https://bun.sh/docs/cli/update
+- Package manager utilities: https://bun.sh/docs/cli/pm
+- bunx (package runner): https://bun.sh/docs/cli/bunx

@@ -1,0 +1,130 @@
+---
+title: The Command Line
+---
+
+import { Tabs, TabItem, Aside } from '@astrojs/starlight/components';
+
+Much of modern development happens at the command line: a text interface for running programs, scripting, and automating tasks.
+
+On macOS, open the built‑in [Terminal](https://support.apple.com/guide/terminal/welcome/2.14/mac) app to access a shell. Newer macOS versions default to [`zsh`](https://en.wikipedia.org/wiki/Z_shell). If your Mac was upgraded from an older release, Terminal might still use [`bash`](https://en.wikipedia.org/wiki/Bash_(Unix_shell)). You can change the shell in [Terminal preferences](https://support.apple.com/guide/terminal/change-the-default-shell-trml113/mac). This guide assumes `zsh`.
+
+## Running Command Line Programs
+
+In a shell, you run programs by name, optionally followed by subcommands, options, and arguments:
+
+```sh
+program [subcommand] [--option value] [-f] [ARG...]
+```
+
+<Aside title="How does the shell find a program by name?">
+
+It searches directories listed in your `PATH` environment variable, in order.
+
+```sh
+echo $PATH          # show search locations
+command -v python   # print the path of a program (or nothing)
+which ruby          # also prints the path (alias to command -v on macOS)
+type cd             # built‑ins are part of the shell, not files
+```
+
+</Aside>
+
+Common places where tools live on macOS:
+
+- System tools: `/usr/bin`, `/bin`
+- Homebrew (Apple Silicon): `/opt/homebrew/bin`
+- Bun: `$HOME/.bun/bin`
+
+Command line programs can take arguments in the form of positional arguments:
+
+```sh
+some-program positional.png another-position.jpeg
+```
+
+Command line programs can also take arguments in the form of keyword arguments with two dashes:
+
+```sh
+some-program --input in.png --output out.jpeg
+```
+
+These arguments can also accept short names using a single dash:
+
+```sh
+some-program -i in.png -o out.jpeg
+```
+
+Keyword arguments can be boolean, determined by their presence or absence:
+
+```sh
+some-program --recursive
+some-other-program -r
+```
+
+These are called flags. Program flags can be combined into a single line since they are known to each only consist of a single character:
+
+```sh
+some-program -rFpDs
+# is equivalent to
+some-program -r -F -p -D -s
+```
+
+## Common Mac CLI Programs
+
+Here are essentials you’ll use frequently in this guide. Try each example.
+
+- Navigation: `pwd` (print working dir), `cd` (change dir), `ls -la` (list files)
+  ```sh
+  cd ~/Developer && ls -la
+  ```
+- Files: `mkdir`, `touch`, `cp`, `mv`, `open` (open in Finder/app), `code` (open in VS Code)
+  ```sh
+  mkdir src && touch src/index.ts
+  open .
+  code .
+  ```
+- Viewing text: `cat`, `less`, `head`, `tail -f`
+  ```sh
+  tail -f logs/dev.log
+  ```
+- Search: `grep -R "vite" .`
+- Git: `git status`, `git add -A`, `git commit -m "msg"`, `git push`
+
+<Aside type="caution" title="Be careful with rm">
+`rm -rf` permanently deletes files. Prefer moving to Trash in Finder, or use `rm -i` to confirm.
+</Aside>
+
+## System Package Manager
+
+One simple way to get started getting familiar with the Terminal is to install some [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) apps using the command line. You can do this by installing Homebrew, the system package manager for macOS. A system package manager is sort of like an app store that can install GUI apps as well as command line programs and other system libraries.
+
+To install Homebrew, you can run:
+
+```sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+After installation, ensure Homebrew is on your `PATH`:
+
+```sh
+echo 'export PATH="/opt/homebrew/bin:$PATH"' >> ~/.zshrc
+exec zsh -l
+brew doctor
+```
+
+Use Homebrew for system utilities and desktop apps (e.g., `gh`, `ripgrep`, `sqlite`, `google-chrome`).
+
+{/* ## Google Chrome
+
+While you can develop websites in any browser, I've found that Chromium-based browsers have the best developer tools and the widest availability of developer extensions. You will, of course, need to test in other browsers (especially mobile Safari) to make sure your website works for everyone (we'll cover that in a later section), but for development, Chrome is a great choice. You can download it using one of the following methods:
+
+<Tabs syncKey="software-services-setup">
+    <TabItem label="macOS" icon="apple">
+
+        - Open Terminal and run:
+            ```sh
+            brew install --cask google-chrome
+            ```
+        - Download from the [website](https://www.google.com/chrome)
+
+    </TabItem>
+</Tabs> */}

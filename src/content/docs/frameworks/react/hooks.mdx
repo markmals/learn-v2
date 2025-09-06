@@ -1,0 +1,74 @@
+---
+title: Hooks
+---
+
+Hooks let you use different React features from your components. You can either use the built-in hooks, hooks from npm packages, or combine them to build your own hooks.
+
+## State
+
+State lets a component "remember" information like user input and causes a component to rerender when the state changes. For example, a form component can use state to store the input value, while an image gallery component can use state to store the selected image index.
+
+To add state to a component, use one of these Hooks:
+
+- `useState` declares a state variable that you can update directly.
+- `useReducer` declares a state variable with the update logic inside a [reducer function](https://react.dev/learn/extracting-state-logic-into-a-reducer).
+
+```jsx
+function ImageGallery() {
+    const [index, setIndex] = useState(0);
+    // ...
+```
+
+```jsx
+function reducer(state, action) {
+    // ...
+}
+
+function Profile() {
+    const [state, dispatch] = useReducer(reducer, { age: 42 });
+    // ...
+```
+
+## Resources
+
+Resources are values inside a container, such as a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) or context. Components can subscribe to a resource and update when the resource changes.
+
+- `use` reads and subscribes to a resource (Promise or context).
+
+### Promise
+
+```jsx
+function MessageComponent({ messagePromise }) {
+    const message = use(messagePromise);
+    // ...
+```
+
+### Context
+
+```jsx
+const ThemeContext = createContext("dark");
+
+function App() {
+    return (
+        <ThemeContext>
+            <Button />
+        </ThemeContext>
+    );
+}
+
+function Button() {
+    const theme = use(ThemeContext);
+    // ...
+```
+
+{/* ## Optimistic State
+
+https://react.dev/reference/react/useOptimistic
+
+## Action State
+
+https://react.dev/reference/react/useActionState
+
+## Form Status
+
+https://react.dev/reference/react-dom/hooks/useFormStatus */}

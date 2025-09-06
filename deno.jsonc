@@ -4,26 +4,20 @@
     "lock": false,
     "unstable": ["fmt-component", "bare-node-builtins"],
     "tasks": {
-        "dev": {
-            "command": "deno run -A npm:astro dev",
-            "dependencies": ["generate-shiki"]
-        },
+        "dev": "deno run -A npm:astro dev",
         "fmt": "deno fmt",
         "lint": "deno lint",
-        "build": {
-            "command": "deno run -A npm:astro build",
-            "dependencies": ["generate-shiki"]
-        },
+        "build": "deno run -A npm:astro build",
         "preview": "deno run -A npm:astro preview",
-        "clean": "find . -type d -name 'node_modules' -exec rm -rf {} + && find . -type f -name 'deno.lock' -delete; deno clean; deno install --allow-scripts",
-        "generate-shiki": "deno run -A scripts/generate-shiki-bundle.ts"
+        "clean": "find . -type d -name 'node_modules' -exec rm -rf {} + && find . -type f -name 'deno.lock' -delete; deno clean; deno install --allow-scripts"
     },
     "fmt": {
         "lineWidth": 100,
         "indentWidth": 4,
         "singleQuote": true,
         "semiColons": true,
-        "proseWrap": "preserve"
+        "proseWrap": "preserve",
+        "include": ["**/*.js", "**/*.ts", "**/*.astro"]
     },
     "imports": {
         "@astrojs/starlight": "npm:@astrojs/starlight@^0.35.2",

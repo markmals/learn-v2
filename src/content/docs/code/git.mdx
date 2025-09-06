@@ -1,0 +1,202 @@
+---
+title: Git
+---
+
+import { Tabs, TabItem, Aside } from '@astrojs/starlight/components';
+
+Open Terminal and run:
+
+```sh
+brew install git
+```
+
+### Setting your username in Git
+
+You can change the name that is associated with your Git commits using the `git config` command. The new name you set will be visible in any future commits you push to GitHub from the command line. If you'd like to keep your real name private, you can use any text as your Git username.
+
+Changing the name associated with your Git commits using `git config` will only affect future commits and will not change the name used for past commits.
+
+1. Open Terminal.
+2. Set a Git username:
+   ```sh
+   git config --global user.name "Mona Lisa"
+   ```
+3. Confirm that you have set the Git username correctly:
+   ```sh
+   $ git config --global user.name
+   > Mona Lisa
+   ```
+
+### Setting your commit email address
+
+You can use the `git config` command to change the email address you associate with your Git commits. The new email address you set will be visible in any future commits you push to GitHub from the command line. Any commits you made prior to changing your commit email address are still associated with your previous email address.
+
+1. Open Terminal.
+2. Set your email address using `git`. You should use your [primary email address in GitHub](https://docs.github.com/en/account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account), so that your commits are attributed to you and appear in your contributions graph.
+   ```sh
+   git config --global user.email "mona.lisa@github.com"
+   ```
+3. Confirm that you have set the email address correctly in Git:
+   ```sh
+   $ git config --global user.email
+   > mona.lisa@github.com
+   ```
+
+## What Git Is (Mental Model)
+
+- Working directory: the files you edit on disk.
+- Staging area (index): a checklist of changes to include in the next commit.
+- Repository (.git): the full history of commits and branches.
+- Remote: a copy of your repo hosted elsewhere (e.g., GitHub), typically named `origin`.
+
+## Create a New Repository (Local First)
+
+```sh
+mkdir my-magazine
+cd my-magazine
+git init
+echo "# My Magazine" > README.md
+git add README.md
+git commit -m "Initial commit"
+```
+
+Add a `.gitignore` early to avoid committing junk. Example:
+
+```gitignore
+.DS_Store
+dist/
+.env
+.env.*
+.astro/
+```
+
+## Clone an Existing Repository
+
+If the project already exists on GitHub:
+
+```sh
+git clone https://github.com/OWNER/REPO.git
+cd REPO
+git status
+```
+
+## Everyday Workflow
+
+1. Edit files in your editor.
+2. See what changed:
+   ```sh
+   git status
+   git diff            # detailed changes (before staging)
+   ```
+3. Stage the changes you want to commit:
+   ```sh
+   git add path/to/file.ts
+   # or stage everything that’s modified and new
+   git add -A
+   ```
+4. Commit with a clear message:
+   ```sh
+   git commit -m "Add hero component"
+   ```
+5. Push to GitHub (first push sets the upstream):
+   ```sh
+   git push -u origin main
+   # next time, just: git push
+   ```
+
+## Branching (Feature Work)
+
+Keep `main` stable. Do new work on branches:
+
+```sh
+git switch -c interactive-stickers   # create + switch
+# ...edit files...
+git add -A
+git commit -m "Prototype sticker web component"
+git push -u origin interactive-stickers
+```
+
+When the branch is pushed, open a Pull Request on GitHub to review and merge.
+
+Switch between branches:
+
+```sh
+git switch main
+```
+
+Merge a finished branch into `main` locally (simple case):
+
+```sh
+git switch main
+git pull                       # get latest
+git merge interactive-stickers
+git push
+```
+
+## Syncing and Remotes
+
+- See remotes: `git remote -v`
+- Get new commits from the server without changing your files: `git fetch`
+- Update your branch with remote changes: `git pull` (fetch + merge/rebase)
+- Push your commits to the server: `git push`
+
+If your local is behind the remote, run:
+
+```sh
+git pull --ff-only
+```
+
+If Git suggests you need to set upstream:
+
+```sh
+git push -u origin BRANCH_NAME
+```
+
+## Viewing History
+
+```sh
+git log --oneline --graph --decorate --all
+git blame src/some/file.ts    # who last changed each line
+```
+
+## Undo and Recovery (Common Cases)
+
+- Unstage a file (keep changes):
+  ```sh
+  git restore --staged path/to/file
+  ```
+- Discard local changes to a file (careful!):
+  ```sh
+  git restore path/to/file
+  ```
+- Amend the last commit (e.g., fix message or include a missed file):
+  ```sh
+  git add path/you/forgot
+  git commit --amend
+  ```
+- Revert a commit that’s already pushed (safe for shared history):
+  ```sh
+  git revert <commit-sha>
+  ```
+- Reset to a previous commit (rewrites history — use with care):
+  ```sh
+  git reset --hard <commit-sha>
+  ```
+
+## Merge Conflicts (Quick Triage)
+
+1. Pull or merge triggers a conflict.
+2. Open conflicted files; look for `<<<<<<<`, `=======`, `>>>>>>>` markers.
+3. Edit to the desired result, then:
+   ```sh
+   git add path/with/conflict
+   git commit   # or continue the merge
+   ```
+
+## Small Glossary
+
+- Commit: a snapshot of changes with a message.
+- Branch: a movable pointer to a series of commits.
+- Merge: combine two branches’ histories.
+- Rebase: replay commits on top of another base (advanced; keep to your own branches).
+- Remote: a server copy of your repository (e.g., GitHub’s `origin`).

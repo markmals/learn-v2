@@ -1,0 +1,59 @@
+---
+title: Conditional Rendering
+---
+
+To conditionally render a UI element in React, you most often will use a "ternary expression": 
+
+```tsx 'active ? "active" : "inactive"'
+function Banner(
+    { active, children }: { active: boolean, children: ReactNode }
+) {
+    return (
+        <div className={active ? "active" : "inactive"}>
+            {children}
+        </div>
+    );
+}
+```
+
+In addition to conditionally rendering values for props, you can also conditionally render components or entire component trees:
+
+```tsx "{success ? <CheckmarkIcon /> : <EllipsisIcon />}"
+function Toast() {
+    const [success, setSuccess] = useState(false);
+
+    useEffect(() => {
+        setTimeout(() => setSuccess(!success), 1000);
+    }, [])
+
+    return (
+        <div>
+            <span>{success ? "Success!" : "Loading..."}</span>
+            <hr />
+            {success ? <CheckmarkIcon /> : <EllipsisIcon />}
+        </div>
+    );
+}
+```
+
+The last way to conditionally render in React is by using early return statements:
+
+```tsx "return <div>No Videos</div>"
+function VideoList(
+    { videos, heading }: 
+    { videos: VideoEntry[]; heading: string; }
+) {
+    if (videos.length > 0) {
+        return <div>No Videos</div>
+    }
+
+    return (
+        <section>
+            <h2>{heading}</h2>
+            {videos.map(video =>
+                <Video key={video.id} video={video} />
+            )}
+        </section>
+    );
+}
+```

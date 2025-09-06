@@ -1,0 +1,65 @@
+---
+title: Codex IDE
+---
+
+[Codex is an extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt), which you should already have installed. 
+
+## Options
+
+When you select Codex in the VS Code sidebar, you have access to a chatbox similar to ChatGPT, but it has access to several tools which allow it to read and modify your project and configuration. There are a few options in the sidebar:
+
+### Reasoning Effort
+
+### Mode
+
+### Destination
+
+## Workflow
+
+I essentially pair program with Codex and just drop each prompt in iteratively. I find that works pretty well. The back and forth can be annoying, but it largely works.
+
+I am in charge of the initial boilerplate code, and making sure tooling is set up correctly. This allows for some freedom, choice, and guidance in the beginning.
+
+The workflow is like this:
+
+- Set up the repo (boilerplate, `bun install`, etc)
+- Paste in prompt into Codex
+- Watch Codex dance ♪┏(・o･)┛♪
+- Codex will run tests
+- Run development server to verify changes
+- …
+- If it works, move on to next prompt
+- If it doesn’t work, Q&A with Codex to fix
+- Rinse, repeat ✩₊˚.⋆☾⋆⁺₊✧
+
+## Results
+
+I have built so so many things using this workflow: scripts, web apps, TypeScript CLI tools, etc. It has worked across programming languages and contexts. If you have a small or large project that you are procrastinating on, I would recommend giving it a shot. You will be surprised how far you can get in a short amount of time.
+
+My hack to-do list is empty because I built everything. I keep thinking of new things and knocking them out while watching a movie or something. For the first time in years, I am spending time with new programming languages and tools. This is pushing me to expand my programming perspective.
+
+## Prompt Magic
+
+These quick hacks work super well to dig into places where we can make a project more robust. It is super quick, and effective.
+
+Here are some of my prompts that I use to dig into code bases:
+
+### Code Review
+
+```txt wrap
+You are a senior developer. Your job is to do a thorough code review of this code. You should write it up and output markdown. Include line numbers, and contextual info. Your code review will be passed to another teammate, so be thorough. Think deeply  before writing the code review. Review every part, and don't hallucinate.
+```
+
+### GitHub Issue Generation
+
+```txt wrap
+You are a senior developer. Your job is to review this code, and write out the top issues that you see with the code. It could be bugs, design choices, or code cleanliness issues. You should be specific, and be very good. Do Not Hallucinate. Think quietly to yourself, then act - write the issues. The issues will be given to a developer to executed on, so they should be in a format that is compatible with github issues
+```
+
+### Missing Tests
+
+```txt wrap
+You are a senior developer. Your job is to review this code, and write out a list of missing test cases, and code tests that should exist. You should be specific, and be very good. Do Not Hallucinate. Think quietly to yourself, then act - write the issues. The issues will be given to a developer to executed on, so they should be in a format that is compatible with github issues
+```
+
+These prompts are pretty old and busted ("boomer prompts," if I may). They need some refactoring. If you have ideas to make them better lmk.

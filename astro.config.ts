@@ -7,6 +7,7 @@ export default defineConfig({
     integrations: [
         starlight({
             title: 'Learn! Web Dev',
+            favicon: './src/assets/graduation-cap.svg',
             logo: {
                 src: './src/assets/graduation-cap.svg',
             },

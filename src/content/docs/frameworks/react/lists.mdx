@@ -1,0 +1,61 @@
+---
+title: Rendering Lists
+---
+
+Lists in TypeScript almost always come in the form of Arrays:
+
+```ts
+const list = [1, 2, 3, 4, 5];
+console.log(list); // -> [1, 2, 3, 4, 5]
+console.log(list.length); // -> 5
+console.log(list[0]); // -> 1
+```
+
+Arrays also have a few methods on them which allow them to be manipulated:
+
+```ts
+const strings = list.map(num => String(num));
+console.log(strings); // -> ["1", "2", "3", "4", "5"]
+
+const filtered = list.filter(num => num > 3);
+console.log(filtered); // -> [4, 5]
+
+const sorted = list.toSorted((a, b) => b - a);
+console.log(sorted); // -> [5, 4, 3, 2, 1]
+```
+
+The `map()` method being the most relevant here. `map()` allows you to transform each element in the array to a different type and/or value. This works with `number`s, `string`s, and even `ReactNode`s:
+
+```tsx "<span>{num}</span>"
+const nodes = list.map(num => <span>{num}</span>);
+console.log(nodes);
+// [
+//     <span>1</span>,
+//     <span>2</span>,
+//     <span>3</span>,
+//     <span>4</span>,
+//     <span>5</span>,
+// ]
+```
+
+React can render Arrays directly as children:
+
+```tsx "nodes"
+function Articles() {
+    return (
+        <article>{nodes}</article>
+    );
+}
+```
+
+And more often, you call the map method inline, so the values get updated when the function state revalidates:
+
+```tsx "list.map(num => <span>{num}</span>)"
+function Articles() {
+    return (
+        <article>
+            {list.map(num => <span>{num}</span>)}
+        </article>
+    );
+}
+```
