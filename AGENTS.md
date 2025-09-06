@@ -118,6 +118,7 @@ deno task clean
 ## Conversation History
 
 ### The Project
+
 You're creating a guide for a UX designer friend build a digital magazine/publication for his wife. The friend is skilled in UX design and Figma but gets lost with complex code and deployment. The magazine needs:
 
 - Unique visual language for each issue
@@ -125,35 +126,8 @@ You're creating a guide for a UX designer friend build a digital magazine/public
 - "Stickers" that act as visual hyperlinks between pieces
 - Eventually: user accounts and user-generated stickers
 
-### Key Decision Points
-
-1. **Framework Philosophy**: We debated application architecture (SvelteKit) vs. document architecture (Astro). I argued Astro's "enhanced documents" mental model better fits a designer building a publication.
-2. **Auth Complexity**: You correctly identified that user accounts would be integral, not optional. You revealed Clerk has excellent Astro support.
-3. **Simplicity Over Everything**: Given your friend's limited coding experience, we prioritized dead-simple tooling. Deno's all-in-one approach (TypeScript, formatter, linter built-in) won over Node's fragmented ecosystem.
-
-#### Final Stack Decision
-
-**Astro + Web Components + Clerk + Storyblok + Deno + Deno KV + Deno Deploy**
-
-This stack optimizes for:
-
-- **Designer-friendly mental model** (enhanced HTML documents)
-- **Dead-simple auth** (Clerk handles everything)
-- **Maximum creative freedom** (different libraries per issue)
-- **Portable interactivity** (Web Components work everywhere)
-- **Minimal tooling complexity** (Deno's all-in-one approach)
-
-### Web Component Pattern
-
-You highlighted Astro's HTML Web Components pattern as the ideal approach:
-
-- Custom elements that enhance existing HTML rather than replace it
-- Server-side data passed via `data-*` attributes
-- Progressive enhancement philosophy
-- Components that work before JavaScript loads
-
 ### This Documentation Site
 
-You are creating an Astro Starlight guide for your UX designer friend who is learning web development, incorporating the chosen stack and web component patterns.
+You are creating an Astro Starlight guide for your UX designer friend who is learning web development, incorporating your chosen stack.
 
 The key insight: This isn't just about choosing technologies, but about creating a learning path that respects your friend's existing skills (UX design) while keeping the technical complexity manageable and the creative possibilities unlimited.
