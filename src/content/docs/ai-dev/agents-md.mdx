@@ -2,8 +2,8 @@
 title: AGENTS.md
 ---
 
-import { Code } from '@astrojs/starlight/components';
-import reactRouterMarkdown from '../../AGENTS-example.md?raw';
+import { Code } from "@astrojs/starlight/components";
+import reactRouterMarkdown from "../../AGENTS-example.md?raw";
 
 `AGENTS.md` is a simple, open format for guiding coding agents. Think of `AGENTS.md` as a `README.md` for agents: a dedicated, predictable place to provide the context and instructions to help AI coding agents work on your project.
 
@@ -11,11 +11,13 @@ import reactRouterMarkdown from '../../AGENTS-example.md?raw';
 # Contributor Guide
 
 ## Setup commands
+
 - Install dependencies: `bun install`
 - Start dev server: `mise run dev`
 - Run tests: `mise run test`
 
 ## Code style
+
 - TypeScript strict mode
 - Double quotes, use semicolons
 - Use functional patterns where possible
@@ -44,7 +46,6 @@ Rather than introducing another proprietary file, it uses a name and format that
 2. **Cover what matters**
 
     Add sections that help an agent work effectively with your project. Popular choices:
-
     - Project overview
     - Build and test commands
     - Code style guidelines
@@ -58,8 +59,6 @@ Rather than introducing another proprietary file, it uses a name and format that
 4. **Large monorepo? Use nested AGENTS.md files for subprojects**
 
     Place another AGENTS.md inside each package. Agents automatically read the nearest file in the directory tree, so the closest one takes precedence and every subproject can ship tailored instructions.
-
-
 
 ## For React Router Projects
 

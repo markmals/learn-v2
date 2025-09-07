@@ -1,37 +1,56 @@
 {
-    "deno.enable": false,
-    "prettier.enable": false,
+    "prettier.enable": true,
+
     "eslint.enable": false,
+    "deno.enable": false,
     "biome.enabled": false,
 
-    "editor.defaultFormatter": "dprint.dprint",
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+
     "[astro]": {
-        "editor.defaultFormatter": "dprint.dprint"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[typescript]": {
-        "editor.defaultFormatter": "dprint.dprint"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[javascript]": {
-        "editor.defaultFormatter": "dprint.dprint"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[json]": {
-        "editor.defaultFormatter": "dprint.dprint"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[jsonc]": {
-        "editor.defaultFormatter": "dprint.dprint"
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "editor.formatOnSave": true,
+    "[toml]": {
+        "editor.defaultFormatter": "tamasfe.even-better-toml"
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[yml]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[md]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[mdx]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
 
     "explorer.fileNesting.enabled": true,
     "explorer.fileNesting.expand": false,
     "explorer.fileNesting.patterns": {
         "*.css": "$(capture).css.map, $(capture).*.css",
-        ".env": "*.env, .env.*",
-        ".env.local": "*.env, .env.*",
-        "package.json*": ".github*, .vscode*, *.lock, dprint.json*, mise.toml, tsconfig.json, wrangler.json*",
-        "readme*": "agent*, authors, backers*, changelog*, citation*, claude*, code_of_conduct*, codeowners, contributing*, contributors, copying, credits, governance.md, history.md, license*, maintainers, readme*, security.md, sponsors*",
         "*.ts": "$(capture).ts.map, $(capture).*.ts, $(capture)_*.ts",
         "*.astro": "$(capture).astro, $(capture).*.astro, $(capture)_*.astro",
-        "astro.config.*": "drizzle.config.*, react-router.config.*, vitest.config.*, *.plugin.ts, *.config.ts"
+        "*.md": "$(capture).*.md",
+        "*.mdx": "$(capture).*.mdx",
+        ".env": "*.env, .env.*",
+        ".env.local": "*.env, .env.*",
+        "readme*": "agent*, authors, backers*, changelog*, citation*, claude*, code_of_conduct*, codeowners, contributing*, contributors, copying, credits, governance.md, history.md, license*, maintainers, readme*, security.md, sponsors*",
+        "package.json*": ".github*, .vscode*, mise.toml, pnpm-lock.yaml, pnpm-workspace.yaml, tsconfig.json, wrangler.*",
+        "astro.config.*": "drizzle.config.*, vitest.config.*, *.plugin.ts, *.config.ts"
     }
 }

@@ -8,7 +8,7 @@ Because, we're really going to be using: TypeScript!
 
 This is a very good thing. Trust me.
 
-TypeScript is a *superset* of JavaScript, meaning any valid JavaScript syntax is valid TypeScript syntax, but TypeScript adds some additional syntax on top of JavaScript — specifically *types*.
+TypeScript is a _superset_ of JavaScript, meaning any valid JavaScript syntax is valid TypeScript syntax, but TypeScript adds some additional syntax on top of JavaScript — specifically _types_.
 
 ## Why Are We Using TypeScript?
 
@@ -70,12 +70,12 @@ TypeScript lets us describe objects using interfaces:
 
 ```ts
 interface Doughnut {
-	id: string;
-	name: string;
-	price: number;
-	image: string;
-	category: string;
-	stock: number;
+    id: string;
+    name: string;
+    price: number;
+    image: string;
+    category: string;
+    stock: number;
 }
 ```
 
@@ -83,12 +83,12 @@ or using type aliases:
 
 ```ts
 type Doughnut = {
-	id: string;
-	name: string;
-	price: number;
-	image: string;
-	category: string;
-	stock: number;
+    id: string;
+    name: string;
+    price: number;
+    image: string;
+    category: string;
+    stock: number;
 };
 ```
 
@@ -119,8 +119,8 @@ Web browsers don't support running TypeScript directly ([yet](https://github.com
 You can run any TypeScript file by passing it as an argument to Bun:
 
 ```ts title="my-script.ts"
-const greeting: string = "Hello, World!"
-console.log(greeting)
+const greeting: string = "Hello, World!";
+console.log(greeting);
 ```
 
 ```sh

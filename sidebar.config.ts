@@ -140,8 +140,6 @@ export const sidebar: StarlightUserConfig["sidebar"] = [
     // },
     {
         label: "Tutorials",
-        items: [
-            { label: "Address Book", link: "https://reactrouter.com/tutorials/address-book" },
-        ],
+        items: [{ label: "Address Book", link: "https://reactrouter.com/tutorials/address-book" }],
     },
 ];

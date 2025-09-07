@@ -1,18 +1,20 @@
 [tools]
-bun = "latest"
-claude = "latest"
-dprint = "latest"
-"npm:@openai/codex" = "latest"
-"npm:@typescript/native-preview" = "latest"
-"npm:astro" = "^5.13.5"
-"npm:wrangler" = "latest"
+# Core
+node = "lts"
+pnpm = "latest"
 
-[settings.npm]
-bun = true
+# Build
+"npm:prettier" = "latest"
+"npm:@typescript/native-preview" = "latest"
+"npm:wrangler" = "latest"
+"npm:astro" = "^5.13.5"
+
+# Develop
+"npm:@openai/codex" = "latest"
 
 [tasks]
 dev = "astro dev"
 build = "astro build"
 preview = "astro preview"
-fmt = "dprint fmt"
+fmt = "prettier --write ."
 typecheck = "tsgo --noEmit"

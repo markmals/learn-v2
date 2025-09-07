@@ -24,33 +24,30 @@ function VideoList({ videos, emptyHeading }) {
 
     if (count > 0) {
         const noun = count > 1 ? "Videos" : "Video";
-        heading = count + ' ' + noun;
+        heading = count + " " + noun;
     }
 
     return (
         <section>
             <h2>{heading}</h2>
-            {videos.map(video =>
+            {videos.map((video) => (
                 <Video key={video.id} video={video} />
-            )}
+            ))}
         </section>
     );
 }
 ```
 
-Components in React use a special file type and syntax called JSX (`.jsx` for JavaScript JSX files and `.tsx` for TypeScript JSX files). JSX allows you to write HTML-like structures in the same file as your JavaScript/TypeScript code. 
+Components in React use a special file type and syntax called JSX (`.jsx` for JavaScript JSX files and `.tsx` for TypeScript JSX files). JSX allows you to write HTML-like structures in the same file as your JavaScript/TypeScript code.
 
 This means, React components can be TypeScript functions which return JSX structures that describe your UI and then the functions re-run whenever the state of the component changes in response to a user action.
 
-Components can take "props" (properties) like VideoList: 
+Components can take "props" (properties) like VideoList:
 
 ```tsx
-function VideoList(
-    { videos, emptyHeading }: { 
-        videos: VideoEntry[];
-        emptyHeading: string;
-    }
-) { /* ... */ }
+function VideoList({ videos, emptyHeading }: { videos: VideoEntry[]; emptyHeading: string }) {
+    /* ... */
+}
 ```
 
 and those props can be passed to a component in a fashion similar to how attributes are passed to HTML elements:

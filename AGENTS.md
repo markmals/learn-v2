@@ -16,7 +16,7 @@
 - Run `deno task test` for unit tests
 - Use Deno's built-in testing framework (`Deno.test`) for code that doesn't need to be run through the Vite plugin pipeline
 - Use Vitest for code that needs to be run through the Vite plugin pipeline, for example React, Solid, Astro, or Svelte code
-- For JavaScript framework components, use Testing Library (@testing-library/*)
+- For JavaScript framework components, use Testing Library (@testing-library/\*)
 - Ensure all new features include corresponding unit tests
 - Mock external APIs
 

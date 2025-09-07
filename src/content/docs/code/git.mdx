@@ -2,7 +2,7 @@
 title: Git
 ---
 
-import { Tabs, TabItem, Aside } from '@astrojs/starlight/components';
+import { Tabs, TabItem, Aside } from "@astrojs/starlight/components";
 
 Open Terminal and run:
 
@@ -18,14 +18,14 @@ Changing the name associated with your Git commits using `git config` will only 
 
 1. Open Terminal.
 2. Set a Git username:
-   ```sh
-   git config --global user.name "Mona Lisa"
-   ```
+    ```sh
+    git config --global user.name "Mona Lisa"
+    ```
 3. Confirm that you have set the Git username correctly:
-   ```sh
-   $ git config --global user.name
-   > Mona Lisa
-   ```
+    ```sh
+    $ git config --global user.name
+    > Mona Lisa
+    ```
 
 ### Setting your commit email address
 
@@ -33,14 +33,14 @@ You can use the `git config` command to change the email address you associate w
 
 1. Open Terminal.
 2. Set your email address using `git`. You should use your [primary email address in GitHub](https://docs.github.com/en/account-and-profile/how-tos/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account), so that your commits are attributed to you and appear in your contributions graph.
-   ```sh
-   git config --global user.email "mona.lisa@github.com"
-   ```
+    ```sh
+    git config --global user.email "mona.lisa@github.com"
+    ```
 3. Confirm that you have set the email address correctly in Git:
-   ```sh
-   $ git config --global user.email
-   > mona.lisa@github.com
-   ```
+    ```sh
+    $ git config --global user.email
+    > mona.lisa@github.com
+    ```
 
 ## What Git Is (Mental Model)
 
@@ -84,32 +84,32 @@ git status
 
 1. Edit files in your editor.
 2. See what changed:
-   ```sh
-   git status
-   git diff            # detailed changes (before staging)
-   ```
+    ```sh
+    git status
+    git diff # detailed changes (before staging)
+    ```
 3. Stage the changes you want to commit:
-   ```sh
-   git add path/to/file.ts
-   # or stage everything that’s modified and new
-   git add -A
-   ```
+    ```sh
+    git add path/to/file.ts
+    # or stage everything that’s modified and new
+    git add -A
+    ```
 4. Commit with a clear message:
-   ```sh
-   git commit -m "Add hero component"
-   ```
+    ```sh
+    git commit -m "Add hero component"
+    ```
 5. Push to GitHub (first push sets the upstream):
-   ```sh
-   git push -u origin main
-   # next time, just: git push
-   ```
+    ```sh
+    git push -u origin main
+    # next time, just: git push
+    ```
 
 ## Branching (Feature Work)
 
 Keep `main` stable. Do new work on branches:
 
 ```sh
-git switch -c interactive-stickers   # create + switch
+git switch -c interactive-stickers # create + switch
 # ...edit files...
 git add -A
 git commit -m "Prototype sticker web component"
@@ -128,7 +128,7 @@ Merge a finished branch into `main` locally (simple case):
 
 ```sh
 git switch main
-git pull                       # get latest
+git pull # get latest
 git merge interactive-stickers
 git push
 ```
@@ -156,42 +156,42 @@ git push -u origin BRANCH_NAME
 
 ```sh
 git log --oneline --graph --decorate --all
-git blame src/some/file.ts    # who last changed each line
+git blame src/some/file.ts # who last changed each line
 ```
 
 ## Undo and Recovery (Common Cases)
 
 - Unstage a file (keep changes):
-  ```sh
-  git restore --staged path/to/file
-  ```
+    ```sh
+    git restore --staged path/to/file
+    ```
 - Discard local changes to a file (careful!):
-  ```sh
-  git restore path/to/file
-  ```
+    ```sh
+    git restore path/to/file
+    ```
 - Amend the last commit (e.g., fix message or include a missed file):
-  ```sh
-  git add path/you/forgot
-  git commit --amend
-  ```
+    ```sh
+    git add path/you/forgot
+    git commit --amend
+    ```
 - Revert a commit that’s already pushed (safe for shared history):
-  ```sh
-  git revert <commit-sha>
-  ```
+    ```sh
+    git revert <commit-sha>
+    ```
 - Reset to a previous commit (rewrites history — use with care):
-  ```sh
-  git reset --hard <commit-sha>
-  ```
+    ```sh
+    git reset --hard <commit-sha>
+    ```
 
 ## Merge Conflicts (Quick Triage)
 
 1. Pull or merge triggers a conflict.
 2. Open conflicted files; look for `<<<<<<<`, `=======`, `>>>>>>>` markers.
 3. Edit to the desired result, then:
-   ```sh
-   git add path/with/conflict
-   git commit   # or continue the merge
-   ```
+    ```sh
+    git add path/with/conflict
+    git commit # or continue the merge
+    ```
 
 ## Small Glossary
 

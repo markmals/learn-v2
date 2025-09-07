@@ -209,7 +209,7 @@ export async function loader({ params }: Route.LoaderArgs) {
 // Client-side navigation and SPA mode
 export async function clientLoader({ params }: Route.ClientLoaderArgs) {
     return {
-        product: await fetch(`/api/products/${params.id}`).then(r => r.json()),
+        product: await fetch(`/api/products/${params.id}`).then((r) => r.json()),
     };
 }
 
@@ -253,7 +253,7 @@ import { Link, NavLink } from "react-router";
 <Link to="/products">Products</Link>
 
 // Active state styling
-<NavLink to="/dashboard" className={({ isActive }) => 
+<NavLink to="/dashboard" className={({ isActive }) =>
   isActive ? "active" : ""
 }>
   Dashboard
@@ -269,7 +269,7 @@ navigate("/products");
 ```tsx
 import { useFetcher } from "react-router";
 
-function AddToCartButton({ productId }: { productId: string; }) {
+function AddToCartButton({ productId }: { productId: string }) {
     const fetcher = useFetcher();
 
     return (
@@ -318,7 +318,9 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
     if (isRouteErrorResponse(error)) {
         return (
             <div>
-                <h1>{error.status} {error.statusText}</h1>
+                <h1>
+                    {error.status} {error.statusText}
+                </h1>
                 <p>{error.data}</p>
             </div>
         );
@@ -361,9 +363,7 @@ function GlobalSpinner() {
 // Optimistic UI with fetchers
 function CartItem({ item }) {
     const fetcher = useFetcher();
-    const quantity = fetcher.formData
-        ? parseInt(fetcher.formData.get("quantity"))
-        : item.quantity;
+    const quantity = fetcher.formData ? parseInt(fetcher.formData.get("quantity")) : item.quantity;
 
     return (
         <fetcher.Form method="post">
@@ -371,7 +371,7 @@ function CartItem({ item }) {
                 type="number"
                 name="quantity"
                 value={quantity}
-                onChange={e => fetcher.submit(e.currentTarget.form)}
+                onChange={(e) => fetcher.submit(e.currentTarget.form)}
             />
             {item.product.name}
         </fetcher.Form>
@@ -401,7 +401,7 @@ export default function ProductSearchForm() {
 // DON'T use component routing
 <Routes>
     <Route path="/" element={<Home />} />
-</Routes>;
+</Routes>
 ```
 
 ### ❌ Manual Data Fetching:
@@ -421,7 +421,7 @@ function Product() {
 
 ```tsx
 // DON'T handle forms manually
-const handleSubmit = e => {
+const handleSubmit = (e) => {
     e.preventDefault();
     fetch("/api/products", { method: "POST" });
 };

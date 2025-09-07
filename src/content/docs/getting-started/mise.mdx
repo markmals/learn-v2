@@ -2,7 +2,7 @@
 title: Mise
 ---
 
-import { Card, Tabs, TabItem, Aside } from '@astrojs/starlight/components';
+import { Card, Tabs, TabItem, Aside } from "@astrojs/starlight/components";
 
 Mise is a toolchain manager, meaning it is a command line tool that helps you download and manage other command line tools. Similar to Homebrew, but it is scoped more specifically to development tools so it can do more specific things with them.
 
@@ -14,6 +14,7 @@ Use Homebrew:
 ```sh
 brew install mise
 ```
+
 </Card>
 <Card title="Activate" icon="right-arrow">
 Then, make sure to activate for your shell:
@@ -41,6 +42,7 @@ Check your setup:
 ```sh
 mise --version
 ```
+
 </Card>
 
 ## Why Are We Using Mise?
@@ -64,12 +66,12 @@ Here is an example of what a `mise.toml` file might look like, so you can famili
 [tools]
 bun = "latest"
 biome = "latest"
-"npm:@typescript/native-preview" = "latest"  # TypeScript compiler
-"npm:rolldown-vite" = "latest"               # JavaScript Bundler
-"npm:wrangler" = "latest"                    # Cloudflare Workers CLI
+"npm:@typescript/native-preview" = "latest" # TypeScript compiler
+"npm:rolldown-vite" = "latest"              # JavaScript Bundler
+"npm:wrangler" = "latest"                   # Cloudflare Workers CLI
 
 [settings.npm]
-bun = true  # run npm tools via Bun for speed
+bun = true # run npm tools via Bun for speed
 
 [tasks.dev]
 description = "Run the development server"
@@ -79,12 +81,12 @@ run = "vite dev --host"
 description = "Build the app"
 # Specify the source files for caching purposes
 sources = [
-  "bun.lock",
-  "react-router.config.ts",
-  "vite.config.ts",
-  "tsconfig.ts",
-  "worker-configuration.d.ts",
-  "app/**/*.{ts,tsx,css,json,md}",
+    "bun.lock",
+    "react-router.config.ts",
+    "vite.config.ts",
+    "tsconfig.ts",
+    "worker-configuration.d.ts",
+    "app/**/*.{ts,tsx,css,json,md}",
 ]
 # Specify the output files for caching purposes
 outputs = ["build"]

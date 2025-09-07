@@ -2,17 +2,11 @@
 title: Conditional Rendering
 ---
 
-To conditionally render a UI element in React, you most often will use a "ternary expression": 
+To conditionally render a UI element in React, you most often will use a "ternary expression":
 
 ```tsx 'active ? "active" : "inactive"'
-function Banner(
-    { active, children }: { active: boolean, children: ReactNode }
-) {
-    return (
-        <div className={active ? "active" : "inactive"}>
-            {children}
-        </div>
-    );
+function Banner({ active, children }: { active: boolean; children: ReactNode }) {
+    return <div className={active ? "active" : "inactive"}>{children}</div>;
 }
 ```
 
@@ -24,7 +18,7 @@ function Toast() {
 
     useEffect(() => {
         setTimeout(() => setSuccess(!success), 1000);
-    }, [])
+    }, []);
 
     return (
         <div>
@@ -39,20 +33,17 @@ function Toast() {
 The last way to conditionally render in React is by using early return statements:
 
 ```tsx "return <div>No Videos</div>"
-function VideoList(
-    { videos, heading }: 
-    { videos: VideoEntry[]; heading: string; }
-) {
+function VideoList({ videos, heading }: { videos: VideoEntry[]; heading: string }) {
     if (videos.length > 0) {
-        return <div>No Videos</div>
+        return <div>No Videos</div>;
     }
 
     return (
         <section>
             <h2>{heading}</h2>
-            {videos.map(video =>
+            {videos.map((video) => (
                 <Video key={video.id} video={video} />
-            )}
+            ))}
         </section>
     );
 }

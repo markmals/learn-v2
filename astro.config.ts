@@ -1,10 +1,12 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 import { sidebar } from "./sidebar.config.ts";
+import { sidebarWatcher } from "./sidebar.plugin.ts";
 
 export default defineConfig({
     output: "static",
     integrations: [
+        sidebarWatcher(),
         starlight({
             title: "Learn! Web Dev",
             favicon: "./src/assets/graduation-cap.svg",

@@ -2,15 +2,15 @@
 title: Bun
 ---
 
-import { Card, CardGrid } from '@astrojs/starlight/components';
+import { Card, CardGrid } from "@astrojs/starlight/components";
 
 Now it's time to start running some JavaScript. In the web browser this is easy! You just open the browser inspector (`⌘ + ⌥ + I`), select the "Console" tab, write some JavaScript, and hit `return`. There ya go! The result of your code.
 
-But, we're going to use JavaScript for so much more than running code in the browser. In fact, we're going to use it for *everything*. Or, at least, everything possible and feasible. And in order to do that, we need a way to run JavaScript in environments outside of the browser. Like your computer. And a remote server. And maybe a dozen remote servers, depending on how many people are looking at your site. That's where Bun comes in.
+But, we're going to use JavaScript for so much more than running code in the browser. In fact, we're going to use it for _everything_. Or, at least, everything possible and feasible. And in order to do that, we need a way to run JavaScript in environments outside of the browser. Like your computer. And a remote server. And maybe a dozen remote servers, depending on how many people are looking at your site. That's where Bun comes in.
 
 ## What is Bun?
 
-Bun is a *standalone JavaScript runtime*. Bun is built on top of the same JavaScript engine used inside of Safari, [JavaScriptCore](https://developer.apple.com/documentation/javascriptcore), but it adds many utilities and abilities on top of JSC which make it possible to use JavaScript in a number of new ways outside of Safari.
+Bun is a _standalone JavaScript runtime_. Bun is built on top of the same JavaScript engine used inside of Safari, [JavaScriptCore](https://developer.apple.com/documentation/javascriptcore), but it adds many utilities and abilities on top of JSC which make it possible to use JavaScript in a number of new ways outside of Safari.
 
 Bun includes an "all-in-one toolkit" for building and running JavaScript applications, including a:
 
@@ -39,7 +39,7 @@ Primarily, Bun will serve these purposes for us:
 We'll use Mise to install Bun globally:
 
 ```sh
-mise use -g bun@latest  # install latest bun
+mise use -g bun@latest # install latest bun
 ```
 
 Verify that Bun was installed correctly:
@@ -53,7 +53,7 @@ bun --version
 You can run any JavaScript file by passing it as an argument to Bun:
 
 ```js title="my-script.js"
-console.log("Hello, World!")
+console.log("Hello, World!");
 ```
 
 ```sh
@@ -65,8 +65,8 @@ $ bun my-script.js
 
 - Bun install: https://bun.sh/docs/cli/install
 - Add/remove/update
-  - https://bun.sh/docs/cli/add
-  - https://bun.sh/docs/cli/remove
-  - https://bun.sh/docs/cli/update
+    - https://bun.sh/docs/cli/add
+    - https://bun.sh/docs/cli/remove
+    - https://bun.sh/docs/cli/update
 - Package manager utilities: https://bun.sh/docs/cli/pm
 - bunx (package runner): https://bun.sh/docs/cli/bunx
