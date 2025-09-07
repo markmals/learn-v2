@@ -1,29 +1,29 @@
-import type { StarlightUserConfig } from '@astrojs/starlight/types';
+import type { StarlightUserConfig } from "@astrojs/starlight/types";
 
-export const sidebar: StarlightUserConfig['sidebar'] = [
+export const sidebar: StarlightUserConfig["sidebar"] = [
     {
-        label: 'Getting Started',
+        label: "Getting Started",
         items: [
-            { label: 'The Command Line', link: 'getting-started/command-line' },
-            { label: 'Visual Studio Code', link: 'getting-started/vs-code' },
-            { label: 'Mise', link: 'getting-started/mise' },
-            { label: 'Bun', link: 'getting-started/bun' },
-            { label: 'TypeScript', link: 'getting-started/typescript' },
+            { label: "The Command Line", link: "getting-started/command-line" },
+            { label: "Visual Studio Code", link: "getting-started/vs-code" },
+            { label: "Mise", link: "getting-started/mise" },
+            { label: "Bun", link: "getting-started/bun" },
+            { label: "TypeScript", link: "getting-started/typescript" },
             // { label: 'Biome', link: 'getting-started/biome' },
             // { label: 'Fetch', link: 'getting-started/fetch' },
         ],
     },
     {
-        label: 'Frameworks',
+        label: "Frameworks",
         items: [
             // { label: 'Vite', link: 'frameworks/vite' },
             {
-                label: 'React',
+                label: "React",
                 items: [
-                    { label: 'Component Architecture', link: 'frameworks/react/components' },
-                    { label: 'Conditional Rendering', link: 'frameworks/react/conditionals' },
-                    { label: 'Rendering Lists', link: 'frameworks/react/lists' },
-                    { label: 'Hooks', link: 'frameworks/react/hooks' },
+                    { label: "Component Architecture", link: "frameworks/react/components" },
+                    { label: "Conditional Rendering", link: "frameworks/react/conditionals" },
+                    { label: "Rendering Lists", link: "frameworks/react/lists" },
+                    { label: "Hooks", link: "frameworks/react/hooks" },
                     // { label: 'Suspense', link: 'frameworks/react/suspense' },
                 ],
             },
@@ -89,20 +89,20 @@ export const sidebar: StarlightUserConfig['sidebar'] = [
         ],
     },
     {
-        label: 'Agentic Development',
+        label: "Agentic Development",
         items: [
-            { label: 'ChatGPT', link: 'ai-dev/chat-gpt' },
-            { label: 'Codex IDE', link: 'ai-dev/ide' },
+            { label: "ChatGPT", link: "ai-dev/chat-gpt" },
+            { label: "Codex IDE", link: "ai-dev/ide" },
             // { label: 'Codex CLI', link: 'ai-dev/cli' },
             // { label: 'Codex Cloud', link: 'ai-dev/cloud' },
-            { label: 'AGENTS.md', link: 'ai-dev/agents-md' },
+            { label: "AGENTS.md", link: "ai-dev/agents-md" },
         ],
     },
     {
-        label: 'Code Management',
+        label: "Code Management",
         items: [
-            { label: 'Git', link: 'code/git' },
-            { label: 'GitHub', link: 'code/github' },
+            { label: "Git", link: "code/git" },
+            { label: "GitHub", link: "code/github" },
             // { label: 'Pull Requests', link: 'code/prs' },
             // { label: 'GitHub Issues & Discussions', link: 'code/issues-discussions' },
             // { label: 'GitHub Projects', link: 'code/projects' },
@@ -139,9 +139,9 @@ export const sidebar: StarlightUserConfig['sidebar'] = [
     //     ],
     // },
     {
-        label: 'Tutorials',
+        label: "Tutorials",
         items: [
-            { label: 'Address Book', link: 'https://reactrouter.com/tutorials/address-book' },
+            { label: "Address Book", link: "https://reactrouter.com/tutorials/address-book" },
         ],
     },
 ];

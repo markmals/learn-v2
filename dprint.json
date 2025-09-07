@@ -31,26 +31,13 @@
         "formatComments": true
     },
     "markup": {
-        "astroAttrShorthand": true,
-        "component": {
-            "selfClosing": true
-        },
-        "html": {
-            "normal": {
-                "selfClosing": false
-            },
-            "void": {
-                "selfClosing": false
-            }
-        },
-        "svg": {
-            "selfClosing": true
-        }
+        "astroAttrShorthand": true
     },
     "includes": [
         "**/*.{ts,tsx}",
+        "**/*.astro",
         "**/*.json",
-        "**/*.{md,markdown}",
+        "**/*.{md,mdx,markdown}",
         "**/*.css",
         "**/*.toml"
     ],

@@ -122,7 +122,7 @@ deno task clean
 You're creating a guide for a UX designer friend build a digital magazine/publication for his wife. The friend is skilled in UX design and Figma but gets lost with complex code and deployment. The magazine needs:
 
 - Unique visual language for each issue
-- Interactive pieces (like NYT's interactive articles)  
+- Interactive pieces (like NYT's interactive articles)
 - "Stickers" that act as visual hyperlinks between pieces
 - Eventually: user accounts and user-generated stickers
 
