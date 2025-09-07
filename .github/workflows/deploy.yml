@@ -21,29 +21,26 @@ jobs:
             - name: 📥 Checkout code
               uses: actions/checkout@v4
 
-            - name: ⚙️ Setup Deno
-              uses: denoland/setup-deno@v2
-              with:
-                  deno-version: v2.x
+            - name: ⚙️ Setup Mise
+              uses: jdx/mise-action@v2
 
-            - name: 🗄️ Cache Deno modules
+            - name: 🗄️ Cache Bun dependencies
               uses: actions/cache@v3
               with:
-                  path: ~/.cache/deno
-                  key: ${{ runner.os }}-deno-${{ hashFiles('deno.json') }}
-                  restore-keys: |
-                      ${{ runner.os }}-deno-
+                path: ~/.bun/install/cache
+                key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lock') }}
+                restore-keys: |
+                  ${{ runner.os }}-bun-
 
-            - name: 🚀 Build docs (Starlight)
-              run: deno task build
+            - name: 📦 Install dependencies
+              run: bun install
 
-            - name: 🧹 Clean any existing node_modules
-              run: rm -rf node_modules
+            - name: ⚒️ Build
+              run: mise run build
 
-            - name: 🌐 Deploy to Cloudflare Workers
+            - name: ☁️ Deploy to Cloudflare Workers
               uses: cloudflare/wrangler-action@v3.14.1
               with:
-                  apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-                  accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-                  command: deploy --name=${{ env.PROJECT_NAME }} --config=wrangler.jsonc
-                  gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+                apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+                command: deploy --name=${{ env.PROJECT_NAME }} --config=wrangler.jsonc
+                gitHubToken: ${{ secrets.GITHUB_TOKEN }}

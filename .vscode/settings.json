@@ -1,19 +1,24 @@
 {
-    "deno.enable": true,
-
+    "deno.enable": false,
     "prettier.enable": false,
     "eslint.enable": false,
     "biome.enabled": false,
 
-    "editor.defaultFormatter": "denoland.vscode-deno",
+    "editor.defaultFormatter": "dprint.dprint",
+    "[astro]": {
+        "editor.defaultFormatter": "dprint.dprint"
+    },
     "[typescript]": {
-        "editor.defaultFormatter": "denoland.vscode-deno"
+        "editor.defaultFormatter": "dprint.dprint"
     },
     "[javascript]": {
-        "editor.defaultFormatter": "denoland.vscode-deno"
+        "editor.defaultFormatter": "dprint.dprint"
     },
     "[json]": {
-        "editor.defaultFormatter": "denoland.vscode-deno"
+        "editor.defaultFormatter": "dprint.dprint"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "dprint.dprint"
     },
     "editor.formatOnSave": true,
 
@@ -23,7 +28,7 @@
         "*.css": "$(capture).css.map, $(capture).*.css",
         ".env": "*.env, .env.*",
         ".env.local": "*.env, .env.*",
-        "deno.json*": ".github*, .vscode*, wrangler.json*",
+        "package.json*": ".github*, .vscode*, *.lock, dprint.json*, mise.toml, tsconfig.json, wrangler.json*",
         "readme*": "agent*, authors, backers*, changelog*, citation*, claude*, code_of_conduct*, codeowners, contributing*, contributors, copying, credits, governance.md, history.md, license*, maintainers, readme*, security.md, sponsors*",
         "*.ts": "$(capture).ts.map, $(capture).*.ts, $(capture)_*.ts",
         "*.astro": "$(capture).astro, $(capture).*.astro, $(capture)_*.astro",

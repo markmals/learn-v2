@@ -1,0 +1,18 @@
+[tools]
+bun = "latest"
+claude = "latest"
+dprint = "latest"
+"npm:@openai/codex" = "latest"
+"npm:@typescript/native-preview" = "latest"
+"npm:astro" = "^5.13.5"
+"npm:wrangler" = "latest"
+
+[settings.npm]
+bun = true
+
+[tasks]
+dev = "astro dev"
+build = "astro build"
+preview = "astro preview"
+fmt = "dprint fmt"
+typecheck = "tsgo --noEmit"
