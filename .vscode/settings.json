@@ -39,6 +39,11 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
 
+    "files.associations": {
+        // GitHub Actions files try to masquerade as a different file type, for some reason
+        "*.yml": "yaml"
+    },
+
     "explorer.fileNesting.enabled": true,
     "explorer.fileNesting.expand": false,
     "explorer.fileNesting.patterns": {
