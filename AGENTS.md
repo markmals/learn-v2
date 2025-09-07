@@ -1,77 +1,70 @@
 # Contributor Guide
 
-## Deno
+## Node
 
 #### Environment Setup
 
-- Always use Deno 2.x features and APIs
-- Use deno.json/deno.jsonc for project configuration
-- Never use or create package.json nor tsconfig.json
-- Prefer Deno's built-in tools and packages over npm packages when available
-- Use the `imports` files in deno.json for dependency management
-- Always use explicit file extensions in imports (.ts, .tsx)
+- Always use Node LTS (22.18.0) features and APIs
+- Use package.json & tsconfig.json for project configuration
+- Prefer Node's built-in tools and packages over npm packages when available
+- Always use the `node:` namespace when referencing Node built-in packages
+- Use package.json for dependency management
+- Use mise.toml for developer tool management
+
+#### TypeScript Support
+
+- As of Node 22.18.0, Node supports running TypeScript files without any arguments; this works now: `node my-script.ts`
+- Write any build scripts using TypeScript and run them directly with Node instead of attempting to use `ts-node`, `tsx`, `deno`, `bun`, or any other runtime or TypeScript compiler
+- Runtime files will still need to pass through the Vite pipeline, so they can continue to be authored with TypeScript
+- The only JavaScript files in this project should be rare exceptions, like config files which do not support TypeScript yet or server files for runtimes which do not support TypeScript yet, for example
 
 #### Testing Requirements
 
-- Run `deno task test` for unit tests
-- Use Deno's built-in testing framework (`Deno.test`) for code that doesn't need to be run through the Vite plugin pipeline
+- Run `mise run test` for unit tests
+- Use Node's built-in testing framework (`node:test`) for code that doesn't need to be run through the Vite plugin pipeline
 - Use Vitest for code that needs to be run through the Vite plugin pipeline, for example React, Solid, Astro, or Svelte code
-- For JavaScript framework components, use Testing Library (@testing-library/\*)
+- For JavaScript framework components, use Testing Library (`@testing-library/*`)
 - Ensure all new features include corresponding unit tests
 - Mock external APIs
 
 #### Code Quality Checks
 
-- Format code with `deno task fmt` before committing
-- Run `deno task lint` and fix all info, warnings, and errors
-- Type-check with `deno task typecheck`
+- Format code with `mise run fmt` before committing
+- Run `mise run lint` and fix all info, warnings, and errors
+- Type-check with `mise run typecheck`
 - Prefer `unknown` over `any` unless absolutely necessary
 - Use JSDoc/TSDoc comments for public APIs
 - Document important lines of code with a single line comment
 
 #### Common Commands
 
-- Dev server: `deno task dev`
-- Build: `deno task build`
-- Test: `deno task test`
-- Type check: `deno task typecheck`
-- Lint: `deno task check`
+- Install dependencies: `pnpm install`
+- Add dependencies: `pnpm add ...`
+- Use Astro commands: `astro ...`
+- Dev server: `mise run dev`
+- Build: `mise run build`
+- Preview: `mise run preview`
+- Test: `mise run test`
+- Format: `mise run fmt`
+- Lint: `mise run lint`
+- Type-check: `mise run typecheck`
 
 #### Import Guidelines
 
-- Use bare specifiers with import map for external deps
-- Prefer `jsr:@std/*` for standard library
+- Use `pnpm` for all package and in-project production dependency management
+- Prefer `jsr:@std/*` for standard library (install using `pnpm add jsr:@std/fs`, for example)
 - Use relative imports for local modules
-- Prefer import aliases over relative imports for local modules
-- Always include file extensions
+- Prefer import aliases over relative imports for local modules when aliases are specified in the `tsconfig.json` field `compilerOptions.paths`
+- Always use explicit file extensions in imports (e.g. `.ts`, `.tsx`, `.astro`)
 
 #### Security Best Practices
 
-- Explicitly specify Deno permissions in scripts
-- Never use --allow-all (-A) in production for user scripts (only for npm/jsr packages)
-- Validate environment variables at startup using `@std/assert`
+- Validate environment variables at startup using `jsr:@std/assert`
 
 #### Debugging Approach
 
-- Use console.log with clear prefixes during development
-- Check Deno permissions first when encountering errors
-- Verify deno.json `imports` configuration for dependency issues
-
-#### Deno Issues
-
-If you run into any Deno or Vite related issues that you cannot resolve, use the following commands to try resetting the cache:
-
-```sh
-find . -type d -name "node_modules" -exec rm -rf {} + && find . -type f -name "deno.lock" -delete
-deno clean
-deno install --allow-scripts
-```
-
-or simply:
-
-```sh
-deno task clean
-```
+- Never attempt to run the development server; ask the developer to run the development server to verify changes
+- When debugging a tricky issue, add `console.*` statements with clear prefixes (e.g. `[DB_LOADING]: ...`) and ask the developer to run their code and paste back any logs to assist with debugging; **DO NOT** attempt to run long-running processes like development servers or watchers yourself
 
 ## General Rules
 
