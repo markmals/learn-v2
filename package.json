@@ -2,6 +2,9 @@
     "version": "0.0.1",
     "type": "module",
     "private": true,
+    "scripts": {
+        "postinstall": "mise run postinstall"
+    },
     "dependencies": {
         "@astrojs/starlight": "^0.35.2",
         "astro": "^5.13.5",
@@ -13,11 +16,17 @@
         "prettier-plugin-astro": "^0.14.1",
         "prettier-plugin-pkg": "^0.21.2",
         "prettier-plugin-sh": "^0.18.0",
-        "prettier-plugin-toml": "^2.0.6"
+        "prettier-plugin-toml": "^2.0.6",
+        "wrangler": "^4.34.0"
     },
     "pnpm": {
         "overrides": {
             "vite": "npm:rolldown-vite@latest"
-        }
+        },
+        "onlyBuiltDependencies": [
+            "esbuild",
+            "sharp",
+            "workerd"
+        ]
     }
 }

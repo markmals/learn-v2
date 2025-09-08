@@ -57,5 +57,8 @@
         "readme*": "agent*, authors, backers*, changelog*, citation*, claude*, code_of_conduct*, codeowners, contributing*, contributors, copying, credits, governance.md, history.md, license*, maintainers, readme*, security.md, sponsors*",
         "package.json*": ".github*, .vscode*, mise.toml, pnpm-lock.yaml, pnpm-workspace.yaml, tsconfig.json, wrangler.*",
         "astro.config.*": "drizzle.config.*, vitest.config.*, *.plugin.ts, *.config.ts"
+    },
+    "debug.javascript.defaultRuntimeExecutable": {
+        "pwa-node": "/Users/orion/.local/share/mise/shims/node"
     }
 }
