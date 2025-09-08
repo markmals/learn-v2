@@ -17,4 +17,24 @@ dev = "astro dev"
 build = "astro build"
 preview = "astro preview"
 fmt = "prettier --write ."
-typecheck = "tsgo --noEmit"
+
+[tasks.typecheck]
+description = "Typecheck the entire project"
+depends = "typegen:*"
+run = "tsgo --noEmit"
+
+[tasks."typegen:cloudflare"]
+description = "Generate types for Cloudflare bindings"
+sources = ["wrangler.jsonc"]
+outputs = ["worker-configuration.d.ts"]
+run = "wrangler types"
+
+[tasks.postinstall]
+description = "Generate types after npm package installation"
+run = """
+  if [ -z \"$GITHUB_ACTIONS\" ]; then
+    mise run "typegen:*"
+  else
+    echo '✅ Skipping typegen in CI'
+  fi
+"""
